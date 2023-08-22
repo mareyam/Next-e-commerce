@@ -12,7 +12,8 @@ export const cartSlice = createSlice({
   initialState: persistedState,
   reducers: {
     addProduct: (state, action) => {
-      return [...state, action.payload];
+      // return [...state, action.payload];
+      state.push(action.payload);
     },
     removeProduct: (state, action) => {
       const productIdToRemove = action.payload;

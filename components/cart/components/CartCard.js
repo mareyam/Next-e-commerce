@@ -18,20 +18,20 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
-// import { removeProduct } from "../../../toolkit/Reducer";
+import { removeProduct } from "../../../toolkit/Reducer";
 
 const CartCard = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const productItems = useSelector((state) => {
     return state.cart;
   });
 
   // console.log(productItems);
 
-  // const handleRemoveItem = (product) => {
-  //   console.log("Delected Product:", product.title);
-  //   dispatch(removeProduct(product));
-  // };
+  const handleRemoveItem = (product) => {
+    console.log("Delected Product:", product);
+    dispatch(removeProduct(product));
+  };
 
   return (
     <TableContainer>
@@ -70,7 +70,7 @@ const CartCard = () => {
                         {item.title}
                       </Heading>
                       <Button
-                        // onClick={() => handleRemoveItem(item)}
+                        onClick={() => handleRemoveItem(item.id)}
                         size={{ base: "xs", md: "sm" }}
                       >
                         Remove
