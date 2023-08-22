@@ -23,14 +23,21 @@ import { removeProduct } from "../../../toolkit/Reducer";
 const CartCard = () => {
   const dispatch = useDispatch();
   const productItems = useSelector((state) => {
+    console.log("price is");
+    console.log(state.price);
     return state.cart;
   });
 
-  // console.log(productItems);
-
   const handleRemoveItem = (product) => {
+    handleCartItemsCost();
     console.log("Delected Product:", product);
     dispatch(removeProduct(product));
+  };
+
+  const handleCartItemsCost = () => {
+    return productItems.map((item) => {
+      console.log(item.price);
+    });
   };
 
   return (

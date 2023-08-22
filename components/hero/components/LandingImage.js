@@ -12,8 +12,8 @@ function LandingImage() {
     >
       <Box h="100vh" w="100vw" bgImage="/bg-image.png"></Box>
       <Box
-        w={{base:"50%", md:"50%"}}
-        h={{base:"50%", md:"30%"}}
+        w={{ base: "90%", md: "50%" }}
+        h={{ base: "50%", md: "30%" }}
         bgColor="white"
         opacity="0.75"
         position="absolute"

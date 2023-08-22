@@ -13,46 +13,96 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { displayProducts } from "../../../toolkit/Reducer";
+import Form from "./Form";
 
 const CheckoutCard = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
 
-  useEffect(() => {
-    dispatch(displayProducts());
-  }, [dispatch]);
-
   return (
-    <Container maxW="container.lg">
+    <Container maxW="container.xl">
       <Box textAlign="center">
         <Heading as="h4">Checkout</Heading>
-        <Text fontSize="12px">All the products that were in your cart</Text>
+        <Text fontSize="12px">Buy your favourite items now</Text>
       </Box>
-      {cartItems?.map((item) => (
-        <p>title is{item.title}</p>
-      ))}
-
-      <SimpleGrid columns={{ base: 1, md: 1 }} spacing="2">
-        <Box maxW="500px" borderWidth="1px" borderRadius="lg" overflow="hidden">
-          {/* <Flex>
-            <Image
-              src={"/image 1-1.jpg"}
-              alt="candles"
-              bg="gray.100"
-              w={{ base: "50%", md: "50%" }}
-            />
-            <Stack mt="2" spacing="3" p="2">
-              <Heading fontSize={{ base: "12px", md: "lg" }}>
-                Spiced Mint Candleaf
-              </Heading>
-              <Text fontSize={{ base: "12px", md: "md" }} color="green.400">
-                $9.99
-              </Text>
-            </Stack>
-          </Flex> */}
-          <Divider />
+      <Flex direction={{ base: "column", md: "row" }} flexWrap="wrap">
+        <Box w={{base:'100%', md:'50%'}}>
+          <SimpleGrid
+          columns={{ base: 1, md: 1 }}
+          spacing="2"
+          border="2px solid red"
+        >
+          {cartItems?.map((item) => (
+            <Box
+              key={item.id}
+              border="2px solid green"
+              maxW="100%"
+              borderWidth="1px"
+              borderRadius="lg"
+              overflow="hidden"
+            >
+              <Flex>
+                <Image
+                  src={item.image}
+                  alt="candles"
+                  bg="gray.100"
+                  w={{ base: "50%", md: "50%" }}
+                  h={{ base: "50%", md: "100%" }}
+                />
+                <Stack mt="2" spacing="3" p="2">
+                  <Heading fontSize={{ base: "12px", md: "lg" }}>
+                    {item.title}
+                  </Heading>
+                  <Text fontSize={{ base: "12px", md: "md" }} color="green.400">
+                    {item.price}
+                  </Text>
+                </Stack>
+              </Flex>
+              <Divider />
+            </Box>
+          ))}
+        </SimpleGrid>
         </Box>
-      </SimpleGrid>
+        <Box border="2px solid" w={{ base: "100%", md: "50%" }}>
+          <Form />
+        </Box>
+      </Flex>
+
+      {/* <Flex direction={{ base: "column", md: "row" }} flexWrap="wrap">
+        <SimpleGrid columns={{ base: 1, md: 1 }} spacing="2" border="2px solid">
+          {cartItems?.map((item) => (
+            <Box
+              border="2px solid"
+              maxW="100%"
+              borderWidth="1px"
+              borderRadius="lg"
+              overflow="hidden"
+            >
+              <Flex>
+                <Image
+                  src={item.image}
+                  alt="candles"
+                  bg="gray.100"
+                  w={{ base: "50%", md: "40%" }}
+                  h={{ base: "50%", md: "40%" }}
+                />
+                <Stack mt="2" spacing="3" p="2">
+                  <Heading fontSize={{ base: "12px", md: "lg" }}>
+                    {item.title}
+                  </Heading>
+                  <Text fontSize={{ base: "12px", md: "md" }} color="green.400">
+                    {item.price}
+                  </Text>
+                </Stack>
+              </Flex>
+              <Divider />
+            </Box>
+          ))}
+        </SimpleGrid>
+        <Box>
+          <Form />
+        </Box>
+      </Flex> */}
     </Container>
   );
 };
