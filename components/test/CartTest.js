@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   Table,
   TableContainer,
@@ -18,22 +18,17 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
-import {
-  removeProduct,
-  clearCart,
-  getProductsAmount,
-} from "../../../toolkit/Reducer";
+import { removeProduct, clearCart } from "../../toolkit/Reducer";
+import UseTotalPrice from "../../hooks/useTotalPrice";
 
-const CartCard = () => {
+const CartTest = () => {
   const dispatch = useDispatch();
 
   const productItems = useSelector((state) => {
     console.log("price is");
-    console.log(state.products);
+    console.log(state.cart);
     return state.cart;
   });
-
-  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   const handleRemoveItem = (product) => {
     console.log("Delected Product:", product);
@@ -44,15 +39,29 @@ const CartCard = () => {
     dispatch(clearCart());
   };
 
-  const handleTotalAmount = () => {
-    dispatch(getProductsAmount());
-  };
+  // const handleTotalCost = useMemo(() => {
+  //   let cost = 0;
+  //   productItems.forEach(item => {
+  //     cost += item.price
+  //     console.log(cost)
+  //   });
+  //   return cost;
+  // }, [productItems]);
+
+  const handleTotalProducts = useMemo(() => {
+    let productCount = 0;
+    productItems.forEach((item) => {
+      productCount++;
+      console.log(productCount);
+    });
+    return productCount;
+  }, [productItems]);
 
   return (
     <TableContainer>
       <Button onClick={() => handleEmptyCart()}>empty cart</Button>
-      <Button onClick={handleTotalAmount}>total amount</Button>
-      {totalAmount ? <p>{totalAmount}</p> : <p>no amount found</p>}
+      <UseTotalPrice productItems={productItems} />
+      total items: {handleTotalProducts}
       <Table variant="simple">
         <Thead>
           <Tr>
@@ -119,7 +128,7 @@ const CartCard = () => {
   );
 };
 
-export default CartCard;
+export default CartTest;
 
 const Quantity = () => {
   const [quantity, setQuantity] = useState(0);
@@ -141,10 +150,8 @@ const Quantity = () => {
   );
 };
 
-
-
-  // useEffect(()=>{
-  //   const cartItems = localStorage.getItem("cart");
-  //   const items = cartItems ? JSON.parse(cartItems) : [];
-  //   setCartItems(items);
-  // },[])
+// useEffect(()=>{
+//   const cartItems = localStorage.getItem("cart");
+//   const items = cartItems ? JSON.parse(cartItems) : [];
+//   setCartItems(items);
+// },[])

@@ -9,8 +9,7 @@ export const cartSlice = createSlice({
       state.push(action.payload);
     },
     removeProduct: (state, action) => {
-      // return state.filter((item) => item.id !== action.payload);
-      state.splice(action.payload, 1)
+      return state.filter((item) => item.id !== action.payload);
     },
     clearCart: (state, action) => {
       state = [];
@@ -25,19 +24,67 @@ export default cartSlice.reducer;
 
 // export const cartSlice = createSlice({
 //   name: "cart",
+//   initialState: {
+//     products: [],
+//     totalAmount: 0,
+//     totalProducts: 0,
+//   },
+//   reducers: {
+//     addProduct: (state, action) => {
+//       state.products.push(action.payload);
+//       state.totalProducts++;
+//       state.totalAmount += action.payload.price;
+//     },
+//     removeProduct: (state, action) => {
+//       const indexToRemove = state.products.findIndex(
+//         (product) => product.id === action.payload
+//       );
+//       if (indexToRemove !== -1) {
+//         state.products.splice(indexToRemove, 1);
+//         state.totalProducts--;
+//         state.totalAmount -= action.payload.price;
+//       }
+//     },
+//     clearCart: (state, action) => {
+//       state.products = [];
+//       state.totalProducts = 0;
+//       state.totalAmount = 0;
+//     },
+//     getProductsAmount: (state, action) => {
+//       return state.totalAmount;
+//     },
+//     getProductsCount: (state, action) => {
+//       return state.totalProducts;
+//     },
+//   },
+// });
+
+// export const {
+//   addProduct,
+//   removeProduct,
+//   clearCart,
+//   getProductsAmount,
+//   getProductsCount,
+// } = cartSlice.actions;
+// export default cartSlice.reducer;
+
+// import { createSlice } from "@reduxjs/toolkit";
+
+// export const cartSlice = createSlice({
+//   name: "cart",
 //   initialState: [],
 
 //   reducers: {
 //     addProduct: (state, action) => {
 //       const updatedState = [...state, action.payload];
 //       console.log("updated is ")
-//       console.log(updatedState)      
+//       console.log(updatedState)
 //       return updatedState;
 //     },
 //     removeProduct: (state, action) => {
 //       const updatedState = state.filter((item) => item.id !== action.payload);
 //       console.log("updated is ")
-//       console.log(updatedState)      
+//       console.log(updatedState)
 //       return updatedState;
 //     },
 //     clearCart: (state, action) => {
@@ -48,18 +95,6 @@ export default cartSlice.reducer;
 //     },
 //   },
 // });
-
-
-
-
-
-
-
-
-
-
-
-
 
 // export const { addProduct, removeProduct, clearCart } = cartSlice.actions;
 // export default cartSlice.reducer;
