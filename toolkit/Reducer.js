@@ -9,7 +9,8 @@ export const cartSlice = createSlice({
       state.push(action.payload);
     },
     removeProduct: (state, action) => {
-      return state.filter((item) => item.id !== action.payload);
+      // return state.filter((item) => item.id !== action.payload);
+      state.splice(action.payload, 1)
     },
     clearCart: (state, action) => {
       state = [];
@@ -19,6 +20,49 @@ export const cartSlice = createSlice({
 
 export const { addProduct, removeProduct, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
+
+// import { createSlice } from "@reduxjs/toolkit";
+
+// export const cartSlice = createSlice({
+//   name: "cart",
+//   initialState: [],
+
+//   reducers: {
+//     addProduct: (state, action) => {
+//       const updatedState = [...state, action.payload];
+//       console.log("updated is ")
+//       console.log(updatedState)      
+//       return updatedState;
+//     },
+//     removeProduct: (state, action) => {
+//       const updatedState = state.filter((item) => item.id !== action.payload);
+//       console.log("updated is ")
+//       console.log(updatedState)      
+//       return updatedState;
+//     },
+//     clearCart: (state, action) => {
+//       state = null
+//       console.log("state is ")
+//       console.log(state)
+//       return state;
+//     },
+//   },
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const { addProduct, removeProduct, clearCart } = cartSlice.actions;
+// export default cartSlice.reducer;
 // import { createSlice } from "@reduxjs/toolkit";
 
 // const initialState = [];
