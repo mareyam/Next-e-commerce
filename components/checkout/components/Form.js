@@ -24,10 +24,10 @@ const Form = () => {
   } = useForm();
   return (
     <Container>
-      <Flex textAlign="center" justifyContent="space-between">
+      <Box textAlign="center" justifyContent="space-between">
         <Heading fontSize="25px">Contact</Heading>
-        <p>do you have an account? Login</p>
-      </Flex>
+        {/* <p>do you have an account? Login</p> */}
+      </Box>
       {/* onSubmit={handleSubmit(handleInput)} */}
       <VStack as="form">
         <Box>

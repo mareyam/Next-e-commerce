@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Table,
   TableContainer,
@@ -18,9 +18,10 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
-import { removeProduct } from "../../../toolkit/Reducer";
+import { removeProduct, clearCart } from "../../../toolkit/Reducer";
 
 const CartCard = () => {
+  const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch();
   const productItems = useSelector((state) => {
     console.log("price is");
@@ -40,8 +41,19 @@ const CartCard = () => {
     });
   };
 
+  const handleEmptyCart = () => {
+    dispatch(clearCart());
+  };
+
+  // useEffect(()=>{
+  //   const cartItems = localStorage.getItem("cart");
+  //   const items = cartItems ? JSON.parse(cartItems) : [];
+  //   setCartItems(items);
+  // },[])
+
   return (
     <TableContainer>
+      <Button onClick={() => handleEmptyCart()}>empty cart</Button>
       <Table variant="simple">
         <Thead>
           <Tr>
@@ -109,6 +121,7 @@ const CartCard = () => {
 };
 
 export default CartCard;
+
 const Quantity = () => {
   const [quantity, setQuantity] = useState(0);
   const handleIncrement = () => {

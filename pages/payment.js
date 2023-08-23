@@ -7,7 +7,7 @@ import { Heading, Flex, Box } from "@chakra-ui/react";
 const Payment = () => {
   return (
     <div>
-      <Heading textAlign="center">Checkout</Heading>
+      {/* <Heading textAlign="center">Checkout</Heading> */}
       <Flex direction={{ base: "column-reverse", md: "row" }} flexWrap="wrap">
         <Box w={{ base: "100%", md: "50%" }}>
           <Checkout />

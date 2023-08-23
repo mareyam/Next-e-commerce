@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Container,
@@ -15,13 +15,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { addProduct } from "../../../toolkit/Reducer";
 import CartItem from "../../cart/components/CartItem";
 
-function ProductItems() {
+function ProductItems({ showAddToCart }) {
   const { data } = useProducts();
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
-    console.log("Selected Product:", product.title)
-    console.log(product)
+    console.log("Selected Product:", product.title);
     dispatch(addProduct(product));
   };
 
@@ -43,13 +42,17 @@ function ProductItems() {
             <Box>
               <Image src={item.image} alt="candles" bg="gray.100" w="100%" />
               <Stack mt="2" spacing="3" p="2">
-                <Heading size="xs">{item.title}</Heading>
+                <Heading overflow="hidden" size="xs" isTruncated>
+                  {item.title}
+                </Heading>
                 <Text color="green.600" fontSize="sm">
                   ${item.price}
                 </Text>
-                <Button onClick={() => handleAddToCart(item)}>
-                  Add to Cart
-                </Button>
+                {showAddToCart && (
+                  <Button onClick={() => handleAddToCart(item)}>
+                    Add to Cart
+                  </Button>
+                )}
               </Stack>
             </Box>
             <Divider />

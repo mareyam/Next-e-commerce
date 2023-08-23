@@ -1,26 +1,17 @@
-import {
-  SimpleGrid,
-  Box,
-  Container,
-  Heading,
-  Image,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { SimpleGrid, Box, Container, Heading, Text } from "@chakra-ui/react";
 import React from "react";
+import TestimonialsCard from "./TestimonialsCard";
 
 const Testimonials = () => {
   return (
-    <Container maxW="container.lg" border="2px solid">
+    <Container maxW="container.lg">
       <Box textAlign="center">
         <Heading>Testimonials</Heading>
         <Text>Some quotes from our happy customers</Text>
       </Box>
-      <SimpleGrid columns={{ base: 2, md: 3 }} spacing="2">
+      <SimpleGrid columns={{ base: 2, md: 3 }} spacing="4">
         {TESTIMONIALS_LIST.map((value) => {
-          return (
-              <Card TestimonialsList={value}></Card>
-          );
+          return <TestimonialsCard TestimonialsList={value}></TestimonialsCard>;
         })}
       </SimpleGrid>
     </Container>
@@ -65,14 +56,3 @@ const TESTIMONIALS_LIST = [
     name: "Emily Davis",
   },
 ];
-
-const Card = ({ TestimonialsList }) => {
-  const { id, image, comment, name } = TestimonialsList;
-  return (
-    <VStack textAlign="center" border="2px solid">
-      <Image borderRadius="100%" src={image}></Image>
-      <Heading fontSize="12px">{comment}</Heading>
-      <Text fontSize="8px">{name}</Text>
-    </VStack>
-  );
-};

@@ -22,6 +22,7 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
+// export default store;
 
 // import { configureStore } from "@reduxjs/toolkit";
 // import cartSlice from "./Reducer";
@@ -31,11 +32,11 @@ export const persistor = persistStore(store);
 //     cart: cartSlice,
 //   },
 // });
-// 
-// 
-// 
-// 
-// 
+//
+//
+//
+//
+//
 
 // export const store = configureStore({
 //   cart: cartSlice,

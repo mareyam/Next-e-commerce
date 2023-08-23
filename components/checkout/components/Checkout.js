@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 const Checkout = () => {
   const cartItems = useSelector((state) => state.cart);
   return (
-    <Box>
+    <Box marginTop={{ base: 0, md: 2 }}>
       <SimpleGrid columns={{ base: 1, md: 1 }} spacing="2">
         {cartItems?.map((item) => (
           <Box
@@ -23,6 +23,7 @@ const Checkout = () => {
             borderWidth="1px"
             borderRadius="lg"
             overflow="hidden"
+            m={{ base: 2, md: 0 }}
           >
             <Flex>
               <Image
