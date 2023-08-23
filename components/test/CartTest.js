@@ -19,7 +19,8 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
 import { removeProduct, clearCart } from "../../toolkit/Reducer";
-import UseTotalPrice from "../../hooks/useTotalPrice";
+import { UseTotalPrice, UseTotalProducts } from "../../hooks";
+import { handleRemoveItem, handleEmptyCart } from "../../hooks/useCart";
 
 const CartTest = () => {
   const dispatch = useDispatch();
@@ -39,29 +40,11 @@ const CartTest = () => {
     dispatch(clearCart());
   };
 
-  // const handleTotalCost = useMemo(() => {
-  //   let cost = 0;
-  //   productItems.forEach(item => {
-  //     cost += item.price
-  //     console.log(cost)
-  //   });
-  //   return cost;
-  // }, [productItems]);
-
-  const handleTotalProducts = useMemo(() => {
-    let productCount = 0;
-    productItems.forEach((item) => {
-      productCount++;
-      console.log(productCount);
-    });
-    return productCount;
-  }, [productItems]);
-
   return (
     <TableContainer>
-      <Button onClick={() => handleEmptyCart()}>empty cart</Button>
+      <Button onClick={() => <handleEmptyCart />}>empty cart</Button>
       <UseTotalPrice productItems={productItems} />
-      total items: {handleTotalProducts}
+      <UseTotalProducts productItems={productItems} />
       <Table variant="simple">
         <Thead>
           <Tr>
@@ -97,7 +80,7 @@ const CartTest = () => {
                         {item.title}
                       </Heading>
                       <Button
-                        onClick={() => handleRemoveItem(item.id)}
+                        onClick={() => <handleEmptyCart product={item.id} />}
                         size={{ base: "xs", md: "sm" }}
                       >
                         Remove
