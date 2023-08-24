@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 
-const UseTotalPrice = ({ productItems }) => {
+const useTotalPrice = (productItems) => {
   const handleTotalCost = useMemo(() => {
     let cost = 0;
     productItems.forEach((item) => {
@@ -10,7 +10,7 @@ const UseTotalPrice = ({ productItems }) => {
     return cost;
   }, [productItems]);
 
-  return <div>${handleTotalCost}</div>;
+  return handleTotalCost;
 };
 
-export default UseTotalPrice;
+export default useTotalPrice;

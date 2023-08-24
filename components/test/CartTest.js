@@ -19,32 +19,39 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
 import { removeProduct, clearCart } from "../../toolkit/Reducer";
-import { UseTotalPrice, UseTotalProducts } from "../../hooks";
-import { handleRemoveItem, handleEmptyCart } from "../../hooks/useCart";
+import useCart from "../../hooks/useCart";
+import useTotalPrice from "../../hooks/useTotalPrice";
+import useTotalProducts from "../../hooks/useTotalProducts";
 
 const CartTest = () => {
+  const { handleRemoveItem, handleEmptyCart } = useCart();
   const dispatch = useDispatch();
-
   const productItems = useSelector((state) => {
     console.log("price is");
     console.log(state.cart);
     return state.cart;
   });
 
-  const handleRemoveItem = (product) => {
-    console.log("Delected Product:", product);
-    dispatch(removeProduct(product));
-  };
+  const totalPrice = useTotalPrice(productItems);
+  const totalProducts = useTotalProducts(productItems);
+  // const removeItem = handleRemoveItem();
+  // const emptyCart = handleEmptyCart();
 
-  const handleEmptyCart = () => {
-    dispatch(clearCart());
-  };
+  // const handleRemoveItem = (product) => {
+  //   console.log("Delected Product:", product);
+  //   dispatch(removeProduct(product));
+  // };
+
+  // const handleEmptyCart = () => {
+  //   dispatch(clearCart());
+  // };
 
   return (
     <TableContainer>
-      <Button onClick={() => <handleEmptyCart />}>empty cart</Button>
-      <UseTotalPrice productItems={productItems} />
-      <UseTotalProducts productItems={productItems} />
+      <Button onClick={handleRemoveItem}>empty cart</Button>
+      <p>total price is: ${totalPrice}</p>
+      <p>total products are: {totalProducts}</p>
+
       <Table variant="simple">
         <Thead>
           <Tr>
@@ -80,7 +87,7 @@ const CartTest = () => {
                         {item.title}
                       </Heading>
                       <Button
-                        onClick={() => <handleEmptyCart product={item.id} />}
+                        onClick={() => handleRemoveItem(item.id)}
                         size={{ base: "xs", md: "sm" }}
                       >
                         Remove

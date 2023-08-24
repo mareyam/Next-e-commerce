@@ -12,10 +12,11 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
-import { displayProducts } from "../../../toolkit/Reducer";
-import Form from "./Form";
+// import { displayProducts } from "../../../toolkit/Reducer";
+// import Form from "../checkout/components/Form";
+import displayProducts 
 
-const CheckoutCard = () => {
+const CheckoutCartTest = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
 
@@ -110,4 +111,4 @@ const CheckoutCard = () => {
   );
 };
 
-export default CheckoutCard;
+export default CheckoutCartTest;

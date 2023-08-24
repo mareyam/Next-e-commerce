@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 
-const UseTotalProducts = ({ productItems }) => {
+const useTotalProducts = (productItems) => {
   const handleTotalProducts = useMemo(() => {
     let productCount = 0;
     productItems.forEach((item) => {
@@ -9,7 +9,7 @@ const UseTotalProducts = ({ productItems }) => {
     });
     return productCount;
   }, [productItems]);
-  return <div>totallll{handleTotalProducts}</div>;
+  return handleTotalProducts
 };
 
-export default UseTotalProducts;
+export default useTotalProducts;
