@@ -18,8 +18,8 @@ import { addProduct } from "../../toolkit/checkoutSlice";
 
 const CheckoutCartTest = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.checkout);
-  const checkout = useCheckout(cartItems);
+  const cartItems = useSelector((state) => state.cart);
+  const itemsToCheckout = cartItems.filter((item) => !item.isChecked);
 
   return (
     <Container maxW="container.xl">
@@ -34,7 +34,7 @@ const CheckoutCartTest = () => {
             spacing="2"
             border="2px solid red"
           >
-            {cartItems?.map((item) => (
+            {itemsToCheckout?.map((item) => (
               <Box
                 key={item.id}
                 border="2px solid green"

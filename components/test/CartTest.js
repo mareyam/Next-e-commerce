@@ -1,40 +1,131 @@
 import React from "react";
-import { Box, Image, Button, Heading, Checkbox } from "@chakra-ui/react";
+import {
+  Checkbox,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+  HStack,
+  Input,
+  Button,
+  Image,
+  Stack,
+  Heading,
+  Text,
+  Flex,
+} from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { addProduct, removeProduct } from "../../toolkit/checkoutSlice";
 import {
-     addProductToCheckout,
-      removeCartProduct,
-      clearCart,
-  } from "../../toolkit/cartSlice";
+  addProductToCheckout,
+  removeCartProduct,
+  clearCart,
+} from "../../toolkit/cartSlice";
 
 const CartTest = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const handleToCheckout = (product) => {
-      console.log("Added Product:", product.title);
-      dispatch(addProduct(product));
-      dispatch(addProductToCheckout(product.id));
+  const handleToCheckout = (product) => {
+    console.log("Added Product:", product.title);
+    dispatch(addProduct(product));
+    dispatch(addProductToCheckout(product.id));
 
-      console.log("value of addProductToCheckout in test" + product.isChecked);
+    console.log("value of addProductToCheckout in test" + product.isChecked);
   };
   const productItems = useSelector((state) => {
-    console.log(state)
+    console.log(state);
     return state.cart;
   });
 
   return (
-    <Box>
-      <Heading>Cart Items </Heading>
-      {productItems?.map((item) => {
-        return (
-          <Box>
-            <Button onClick={() => handleToCheckout(item)}>button for {item?.id}</Button><p>ischecked {item?.isChecked ? "true" : "false"} for {item?.id} </p>
-            <p>{item?.title}</p>
-          </Box>
-        );
-      })}
-    </Box>
+    <TableContainer>
+      {/* <Button onClick={handleEmptyCart}>empty cart</Button> */}
+      {/* <p>total price is: ${totalPrice}</p> */}
+      {/* <p>total products are: {totalProducts}</p> */}
+
+      <Table variant="simple">
+        <Thead>
+          <Tr>
+            <Th>Checkout</Th>
+            <Th>Product</Th>
+            <Th>Price</Th>
+            <Th>Quantity</Th>
+            <Th>Total</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {productItems?.map((item) => {
+            return (
+              <Tr
+                key={item.id}
+                justifyContent="center"
+                alignItems="center"
+                textAlign="center"
+                maxW="500px"
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+              >
+                <Td>
+                  <Button onClick={() => handleToCheckout(item)}>Add</Button>
+                  <p>
+                    ischecked {item?.isChecked ? "true" : "false"} for{" "}
+                    {item?.id}{" "}
+                  </p>
+                </Td>
+                <Td w="50%" border="2px solid">
+                  <Flex>
+                    <Image
+                      src={item.image}
+                      alt="candles"
+                      bg="gray.100"
+                      w={{ base: "50%", md: "30%" }}
+                    />
+                    <Stack mt="2" spacing="3" p="2">
+                      <Heading fontSize={{ base: "12px", md: "sm" }}>
+                        {item.title}
+                      </Heading>
+                      <Button
+                        // onClick={() => handleRemoveItem(item.id)}
+                        size={{ base: "xs", md: "sm" }}
+                      >
+                        Remove
+                      </Button>
+                    </Stack>
+                  </Flex>
+                </Td>
+                <Td
+                  display={{ base: "none", md: "table-cell" }}
+                  border="2px solid"
+                >
+                  <Text fontSize="sm">${item.price} </Text>
+                </Td>
+                <Td border="2px solid">
+                  <Text fontSize="sm"></Text>
+                </Td>
+                <Td border="2px solid">
+                  <Text fontSize="sm">{item.price}</Text>
+                </Td>
+              </Tr>
+            );
+          })}
+        </Tbody>
+      </Table>
+    </TableContainer>
+
+    // <Box>
+    //   <Heading>Cart Items </Heading>
+    //   {productItems?.map((item) => {
+    //     return (
+    //       <Box>
+    //         <p>{item?.title}</p>
+    //       </Box>
+    //     );
+    //   })}
+    // </Box>
   );
 };
 export default CartTest;

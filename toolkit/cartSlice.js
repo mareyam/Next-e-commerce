@@ -10,34 +10,23 @@ export const cartSlice = createSlice({
     },
     addProductToCheckout: (state, action) => {
       console.log("action is" + action.payload);
-      const item = state.find(item => item.id === action.payload);
+      const item = state.find((item) => item.id === action.payload);
       if (item) {
         item.isChecked = !item.isChecked;
-        console.log("state is now"+item.isChecked)
-      } 
-      // const productIdToCheck = action.payload;
-      // return state.map((product) => ({
-      //   ...product,
-      //   isChecked: product.id === productIdToCheck,
-      // }));
-
-
-      // state.forEach((product) => {
-      //   if (product.id === productIdToCheck) {
-      //     product.isChecked = true;
-      //   } else {
-      //     product.isChecked = false;
-      //   }
-      // });
+        console.log("state is now" + item.isChecked);
+      }
     },
-
     removeCartProduct: (state, action) => {
       return state.filter((item) => item.id !== action.payload);
     },
     clearCart: (state, action) => {
       state = [];
     },
-    checkout: (state, action) => {},
+    checkout: (state, action) => {
+      const itemsToCheckout = state.filter((item) => !item.isChecked);
+      console.log("Items to checkout:", itemsToCheckout);
+      return itemsToCheckout;
+    },
   },
 });
 
@@ -46,8 +35,23 @@ export const {
   removeCartProduct,
   clearCart,
   addProductToCheckout,
+  checkout,
 } = cartSlice.actions;
 export default cartSlice.reducer;
+
+// const productIdToCheck = action.payload;
+// return state.map((product) => ({
+//   ...product,
+//   isChecked: product.id === productIdToCheck,
+// }));
+
+// state.forEach((product) => {
+//   if (product.id === productIdToCheck) {
+//     product.isChecked = true;
+//   } else {
+//     product.isChecked = false;
+//   }
+// });
 
 // addProductToCheckout: (state, action) => {
 //   const updatedItems = state.map((state) => {
