@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { useProducts } from "../../hooks/useProducts";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../../toolkit/Reducer";
+import { addCartProduct } from "../../toolkit/cartSlice";
 
 const ProductsTest = ({ showAddToCart }) => {
   const { data } = useProducts();
@@ -20,7 +20,7 @@ const ProductsTest = ({ showAddToCart }) => {
 
   const handleAddToCart = (product) => {
     console.log("Selected Product:", product.title);
-    dispatch(addProduct(product));
+    dispatch(addCartProduct(product));
   };
 
   return (
@@ -41,6 +41,7 @@ const ProductsTest = ({ showAddToCart }) => {
             <Box>
               <Image src={item.image} alt="candles" bg="gray.100" w="100%" />
               <Stack mt="2" spacing="3" p="2">
+                  <p>isChecked: {item.isChecked ? "true" : "false"}</p>
                 <Heading overflow="hidden" size="xs" isTruncated>
                   {item.title}
                 </Heading>

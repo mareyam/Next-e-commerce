@@ -1,5 +1,5 @@
+//calculates total products count thats added in cart
 import React, { useMemo } from "react";
-
 const useTotalProducts = (productItems) => {
   const handleTotalProducts = useMemo(() => {
     let productCount = 0;
@@ -9,7 +9,7 @@ const useTotalProducts = (productItems) => {
     });
     return productCount;
   }, [productItems]);
-  return handleTotalProducts
+  return handleTotalProducts;
 };
 
 export default useTotalProducts;

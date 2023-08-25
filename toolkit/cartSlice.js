@@ -5,20 +5,58 @@ export const cartSlice = createSlice({
   initialState: [],
 
   reducers: {
-    addProduct: (state, action) => {
+    addCartProduct: (state, action) => {
       state.push(action.payload);
     },
-    removeProduct: (state, action) => {
+    addProductToCheckout: (state, action) => {
+      console.log("action is" + action.payload);
+      const item = state.find(item => item.id === action.payload);
+      if (item) {
+        item.isChecked = !item.isChecked;
+        console.log("state is now"+item.isChecked)
+      } 
+      // const productIdToCheck = action.payload;
+      // return state.map((product) => ({
+      //   ...product,
+      //   isChecked: product.id === productIdToCheck,
+      // }));
+
+
+      // state.forEach((product) => {
+      //   if (product.id === productIdToCheck) {
+      //     product.isChecked = true;
+      //   } else {
+      //     product.isChecked = false;
+      //   }
+      // });
+    },
+
+    removeCartProduct: (state, action) => {
       return state.filter((item) => item.id !== action.payload);
     },
     clearCart: (state, action) => {
       state = [];
     },
+    checkout: (state, action) => {},
   },
 });
 
-export const { addProduct, removeProduct, clearCart } = cartSlice.actions;
+export const {
+  addCartProduct,
+  removeCartProduct,
+  clearCart,
+  addProductToCheckout,
+} = cartSlice.actions;
 export default cartSlice.reducer;
+
+// addProductToCheckout: (state, action) => {
+//   const updatedItems = state.map((state) => {
+//     if (state.id === action.payload) {
+//       return { ...state, isChecked: true };
+//     }
+//   });
+//   return updatedItems;
+// },
 
 // import { createSlice } from "@reduxjs/toolkit";
 

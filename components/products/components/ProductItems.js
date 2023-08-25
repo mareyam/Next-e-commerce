@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { useProducts } from "../../../hooks/useProducts";
 import { useSelector, useDispatch } from "react-redux";
-import { addProduct } from "../../../toolkit/Reducer";
+import { addCartProduct } from "../../../toolkit/cartSlice";
 import CartItem from "../../cart/components/CartItem";
 
 function ProductItems({ showAddToCart }) {
@@ -21,7 +21,7 @@ function ProductItems({ showAddToCart }) {
 
   const handleAddToCart = (product) => {
     console.log("Selected Product:", product.title);
-    dispatch(addProduct(product));
+    dispatch(addCartProduct(product));
   };
 
   return (

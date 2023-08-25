@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import {
   Button,
   Container,
@@ -12,13 +12,14 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
-// import { displayProducts } from "../../../toolkit/Reducer";
-// import Form from "../checkout/components/Form";
-import displayProducts 
+import Form from "../checkout/components/Form";
+import useCheckout from "../../hooks/useCheckOut";
+import { addProduct } from "../../toolkit/checkoutSlice";
 
 const CheckoutCartTest = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.checkout);
+  const checkout = useCheckout(cartItems);
 
   return (
     <Container maxW="container.xl">
@@ -27,7 +28,7 @@ const CheckoutCartTest = () => {
         <Text fontSize="12px">Buy your favourite items now</Text>
       </Box>
       <Flex direction={{ base: "column", md: "row" }} flexWrap="wrap">
-        <Box w={{ base: "100%", md: "50%" }}>
+        <Box w={{ base: "100%", md: "40%" }}>
           <SimpleGrid
             columns={{ base: 1, md: 1 }}
             spacing="2"
@@ -67,7 +68,7 @@ const CheckoutCartTest = () => {
             ))}
           </SimpleGrid>
         </Box>
-        <Box border="2px solid" w={{ base: "100%", md: "50%" }}>
+        <Box border="2px solid" w={{ base: "100%", md: "60%" }}>
           <Form />
         </Box>
       </Flex>

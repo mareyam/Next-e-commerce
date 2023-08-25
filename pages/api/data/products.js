@@ -5,6 +5,7 @@ export default {
       image: "image 1-1.png",
       title: "Soothing Lavender Candle",
       details: "Relaxing lavender scent to calm your senses.",
+      isChecked: true,
       price: 1,
     },
     {
@@ -12,6 +13,7 @@ export default {
       image: "image 1-2.png",
       title: "Warm Vanilla Candle",
       details: "Sweet vanilla aroma to create a cozy atmosphere.",
+      isChecked: true,
       price: 2,
     },
     {
@@ -19,6 +21,7 @@ export default {
       image: "image 1-3.png",
       title: "Fresh Eucalyptus Candle",
       details: "Invigorating eucalyptus fragrance for a refreshing ambiance.",
+      isChecked: true,
       price: 3,
     },
     {
@@ -26,6 +29,7 @@ export default {
       image: "image 1-4.png",
       title: "Spiced Pumpkin Candle",
       details: "Autumnal pumpkin spice scent to set the mood for fall.",
+      isChecked: true,
       price: 4,
     },
     {
@@ -33,6 +37,7 @@ export default {
       image: "image 1-5.png",
       title: "Soothing Rose Candle",
       details: "Relaxing lavender scent to calm your senses.",
+      isChecked: true,
       price: 5,
     },
     {
@@ -40,6 +45,7 @@ export default {
       image: "image 1-6.png",
       title: "Warm Rose Candle",
       details: "Sweet vanilla aroma to create a cozy atmosphere.",
+      isChecked: true,
       price: 6,
     },
     {
@@ -47,6 +53,7 @@ export default {
       image: "image 1.png",
       title: "Dried Eucalyptus Candle",
       details: "Invigorating eucalyptus fragrance for a refreshing ambiance.",
+      isChecked: true,
       price: 7,
     },
     {
@@ -54,6 +61,7 @@ export default {
       image: "image 1-3.png",
       title: "Sweet Pumpkin Candle",
       details: "Autumnal pumpkin spice scent to set the mood for fall.",
+      isChecked: true,
       price: 8,
     },
     {
@@ -61,6 +69,7 @@ export default {
       image: "image 1-3.png",
       title: "new candle",
       details: "newcandle",
+      isChecked: true,
       price: 9,
     },
   ],

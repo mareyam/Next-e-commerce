@@ -1,16 +1,18 @@
+//removes single and all cart items
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { removeProduct, clearCart } from "../toolkit/Reducer";
+import { useDispatch } from "react-redux";
+import { removeCartProduct, clearCart } from "../toolkit/cartSlice";
 
 const useCart = () => {
   const dispatch = useDispatch();
 
-  const handleRemoveItem = ( product ) => {
+  const handleRemoveItem = (product) => {
     console.log("Delected Product:", product);
-    dispatch(removeProduct(product));
+    dispatch(removeCartProduct(product));
   };
 
   const handleEmptyCart = () => {
+    console.log("handle empty cart");
     dispatch(clearCart());
   };
 

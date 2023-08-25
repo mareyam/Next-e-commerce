@@ -19,10 +19,9 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
 import {
-  removeProduct,
+  removeCartProduct
   clearCart,
-  getProductsAmount,
-} from "../../../toolkit/Reducer";
+} from "../../../toolkit/cartSlice";
 
 const CartCard = () => {
   const dispatch = useDispatch();
