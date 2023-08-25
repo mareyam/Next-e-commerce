@@ -3,14 +3,11 @@ import React, { useMemo } from "react";
 const useTotalPrice = (productItems) => {
   const handleTotalCost = useMemo(() => {
     let cost = 0;
-    {
-      productItems &&
-        productItems.forEach((item) => {
+        productItems?.forEach((item) => {
           console.log(item.price);
           cost += item.price;
           console.log(cost);
         });
-    }
     return cost;
   }, [productItems]);
 

@@ -12,7 +12,6 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
-import { displayProducts } from "../../../toolkit/Reducer";
 import Form from "./Form";
 
 const CheckoutCard = () => {

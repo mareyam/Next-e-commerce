@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Checkbox,
   Table,
@@ -17,16 +18,21 @@ import {
   Text,
   Flex,
 } from "@chakra-ui/react";
-import { useSelector, useDispatch } from "react-redux";
 import { addProduct, removeProduct } from "../../toolkit/checkoutSlice";
 import {
   addProductToCheckout,
   removeCartProduct,
   clearCart,
 } from "../../toolkit/cartSlice";
+import useCart from "../../hooks/useCart";
+import useTotalPrice from "../../hooks/useTotalPrice";
+import useTotalProducts from "../../hooks/useTotalProducts";
 
 const CartTest = () => {
   const dispatch = useDispatch();
+  const { handleRemoveItem, handleEmptyCart } = useCart();
+  const totalPrice = useTotalPrice(productItems);
+  const totalProducts = useTotalProducts(productItems);
 
   const handleToCheckout = (product) => {
     console.log("Added Product:", product.title);
@@ -42,9 +48,9 @@ const CartTest = () => {
 
   return (
     <TableContainer>
-      {/* <Button onClick={handleEmptyCart}>empty cart</Button> */}
-      {/* <p>total price is: ${totalPrice}</p> */}
-      {/* <p>total products are: {totalProducts}</p> */}
+      <Button onClick={handleEmptyCart}>empty cart</Button>
+      <p>total price is: ${totalPrice}</p>
+      <p>total products are: {totalProducts}</p>
 
       <Table variant="simple">
         <Thead>
@@ -70,11 +76,9 @@ const CartTest = () => {
                 overflow="hidden"
               >
                 <Td>
-                  <Button onClick={() => handleToCheckout(item)}>Add</Button>
-                  <p>
-                    ischecked {item?.isChecked ? "true" : "false"} for{" "}
-                    {item?.id}{" "}
-                  </p>
+                  <Button as="checkbox" onClick={() => handleToCheckout(item)}>
+                    Add
+                  </Button>
                 </Td>
                 <Td w="50%" border="2px solid">
                   <Flex>
@@ -89,7 +93,7 @@ const CartTest = () => {
                         {item.title}
                       </Heading>
                       <Button
-                        // onClick={() => handleRemoveItem(item.id)}
+                        onClick={() => handleRemoveItem(item.id)}
                         size={{ base: "xs", md: "sm" }}
                       >
                         Remove

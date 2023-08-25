@@ -9,13 +9,18 @@ function LandingImage() {
       display="flex"
       justifyContent="center"
       alignItems="center"
+      overflow="hidden"
     >
-      <Box h="100vh" w="100vw" bgImage="/bg-image.png"></Box>
+      <Box
+        h="100vh"
+        w="100vw"
+        bgImage="/bg-image.png"
+        backgroundSize="cover"
+        backgroundPosition="center"
+      ></Box>
       <Box
         w={{ base: "90%", md: "50%" }}
-        h={{ base: "50%", md: "30%" }}
-        bgColor="white"
-        opacity="0.75"
+        h={{ base: "50%", md: "60%" }}
         position="absolute"
         top="50%"
         left="50%"

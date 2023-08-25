@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 const useTotalProducts = (productItems) => {
   const handleTotalProducts = useMemo(() => {
     let productCount = 0;
-    productItems.forEach((item) => {
+    productItems?.forEach(() => {
       productCount++;
       console.log(productCount);
     });

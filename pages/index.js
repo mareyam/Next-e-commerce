@@ -10,11 +10,11 @@ import Footer from "../components/layout/components/Footer";
 import { useState } from "react";
 
 export default function Home() {
-  const [showAddToCart, setIsShowAddToCart] = useState(false);
+  const [itemSplice, setItemSplice] = useState(8);
   return (
     <Box>
       <LandingImage />
-      <ProductItems showAddToCart={showAddToCart} />
+      <ProductItems itemSplice={itemSplice} />
       <CandleDetail />
       <Testimonials />
       <Footer />
