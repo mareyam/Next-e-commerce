@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Center, 
   Icon, 
   CheckIcon,
   IconButton,
@@ -22,15 +23,20 @@ import { addCartProduct } from "../../../toolkit/cartSlice";
 const ProductsItems = ({ itemSplice }) => {
   const { data } = useProducts();
   const dispatch = useDispatch();
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [toggleHover, setToggleHover] = useState(null);
 
   const handleAddToCart = (product) => {
     console.log("Selected Product:", product.title);
     dispatch(addCartProduct(product));
   };  
-  const toggleOverlay = () => {
-    setShowOverlay(!showOverlay);
+  const handleMouseEnter = (id) => {
+    setToggleHover(id);
   };
+
+  const handleMouseLeave = () => {
+    setToggleHover(null);
+  };
+
 
 
   return (
@@ -39,60 +45,65 @@ const ProductsItems = ({ itemSplice }) => {
         <Heading as="h4">Products</Heading>
         <Text fontSize="12px">Order it for you or for your beloved ones</Text>
       </Box>
-      <SimpleGrid columns={{ base: 1, md: 4 }} spacing="2">
+      <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="2">
         {data?.slice(0, itemSplice).map((item) => (
           <Box
             key={item.id}
-            // boxSize="250px"
+            boxSize="300px"
             width="100%"
             borderWidth="1px"
             borderRadius="lg"
             overflow="hidden"
-            border="2px solid red"
             backgroundSize="cover"
             backgroundPosition="center"
             bgImage={item.image}
             position="relative"
-            onMouseEnter={toggleOverlay}
-            onMouseLeave={toggleOverlay}
+            onMouseEnter={() => handleMouseEnter(item.id)}
+            onMouseLeave={handleMouseLeave}
+            style={{alignItems: 'end', display:'flex'}}
+           
           >
-            <Box border='2px solid' marginTop='50%'  flexDirection= 'column'  justifyContent= 'flex-end'>
-            {showOverlay && (
-        <Box
-          position="absolute"
-          top="0"
-          left="0"
-          right="0"
-          bottom="0"
-          bg="rgba(0, 0, 0, 0.6)"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Button colorScheme="green" size="sm" onClick={() => console.log("item")}>
-            Add to Cart
-          </Button>
-          <Button colorScheme="green" size="sm" onClick={() => setButton(!button)}>
-            X
-          </Button>
-          
+            <Box w='100%'>
+            {(toggleHover === item.id) && (
+            <Box
+              position="absolute"
+              top="0"
+              left="0"
+              right="0"
+              bottom="0"
+              bg="rgba(0, 0, 0, 0.6)"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Center textAlign='center'>
+              <Stack align='center'>
+              <Heading fontSize='md' color='white' p='2'>{item.details}</Heading>
+              {/* <Button w="80%" colorScheme="green" size="sm" onClick={() => console.log("item")}>
+                Add to Cart
+              </Button> */}
+         </Stack>
+         </Center>
         </Box>
       )}
 
       
-              <Stack mt="2" spacing="5" p="2">
+              <Stack spacing="0" p="2"  
+               borderColor="var(--transparent-color, rgba(216, 216, 216, 0.00))"
+               bgGradient="linear(to bottom, rgba(18, 18, 18, 0.00) 0%, #121212 100%)"
+              >
                <Heading overflow="hidden" size="sm" isTruncated>
                   {item.title}
                 </Heading>
                 <Flex justifyContent='space-between' alignItems='center'>
-                <Text fontSize="sm">
+                <Text fontSize="sm" color='white'>
                   Price: ${item.price}
                 </Text>
                 <IconButton
                   w='auto'
                   isRound={true}
                   onClick={() => handleAddToCart(item)}
-                  backgroundColor="gray.300"
+                  backgroundColor="gray.100"
                   icon={<Box>&#128722;</Box>}
                 ></IconButton></Flex>
                 
@@ -106,6 +117,7 @@ const ProductsItems = ({ itemSplice }) => {
 };
 
 export default ProductsItems;
+
 
 // setSelectedProduct((prevProducts) => [...prevProducts, product]);
 {

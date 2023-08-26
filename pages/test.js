@@ -1,67 +1,36 @@
-import React, { useState } from 'react';
-import { Box, Button, Image, Text } from '@chakra-ui/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import {Image} from "@chakra-ui/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { useProducts } from '../hooks/useProducts';
 
-const Test = ({ item }) => {
-  const [button, setButton] = useState(false);
-
-
-  const toggleOverlay = () => {
-    setShowOverlay(!showOverlay);
-  };
+const Test = () => {
+  const { data } = useProducts();
 
   return (
-    <Box
-      position="relative"
-      onMouseEnter={toggleOverlay}
-      onMouseLeave={toggleOverlay}
+    <Swiper
+      // install Swiper modules
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={3}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
     >
-      {/* <Image src={item.imageUrl} alt={item.title} /> */}
-
-
-      {showOverlay && (
-        <Box
-          position="absolute"
-          top="0"
-          left="0"
-          right="0"
-          bottom="0"
-          bg="rgba(0, 0, 0, 0.6)"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Button colorScheme="green" size="sm" onClick={() => console.log("item")}>
-            Add to Cart
-          </Button>
-          <Button colorScheme="green" size="sm" onClick={() => setButton(!button)}>
-            X
-          </Button>
-          
-        </Box>
-      )}
-
-      <Box p="2">
-        <Text fontSize="lg" fontWeight="bold">
-          maryam 
-        </Text>
-        <Text color="gray.500">$50</Text>
-      </Box>
-    </Box>
+      {data?.map((item) => {
+        return (
+          <SwiperSlide>
+            <Image src={item.image}/>
+            <p>{item.id}</p>
+          </SwiperSlide>
+        )
+      })}
+    </Swiper>
   );
 };
-
 export default Test;
-
-// import React, { useState } from "react";
-// import ProductsTest from "../components/test/ProductsTest"; 
-
-// const Test = () => {
-//   const [showAddToCart, setIsShowAddToCart] = useState(true);
-//   return (
-//     <div>
-//       <ProductsTest showAddToCart={showAddToCart} />
-//     </div>
-//   );
-// };
-
-// export default Test;
