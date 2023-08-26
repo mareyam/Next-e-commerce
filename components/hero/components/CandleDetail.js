@@ -23,56 +23,36 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css';
 import { useProducts } from "../../../hooks/useProducts";
+import SwiperCarousel from "../../common/SwiperCarousel";
 
 const CandleDetail = () => {
   const { data } = useProducts();
   return (
+
+   
+  
     <Container
       maxW="container.lg"
       display={{ base: "block", md: "flex" }}
       border="2px solid">
-        
-        <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
-            >
-              {data?.map((item) => {
-                return (
-                  <SwiperSlide>
-                    <Image src={item.image}/>
-                    <p>{item.id}</p>
-                  </SwiperSlide>
-                )
-              })}
 
-          </Swiper>
-       
-
-{/*             
-      <Flex
-        justifyContent="center"
-        direction={{ base: "column-reverse", md: "row" }}
-        alignItems="center" >
-        <Center border='2px solid' w={{base:'100%', md:'40%'}}>
-          <Stack>
+  
+    <Box boxSize='500px' w={{base:'100%', md:'50%'}} align='center'>
+      <Center border='2px solid red'  h="100%" >
+          <Stack align='center'>
             <Heading marginTop="2" fontSize="3xl" color="green.600">
               50+ Beautiful scented candles made for your home and for your wellness
             </Heading>
             <Text fontSize='md'>Our designer already made a lot of beautiful prototipe of rooms that inspire you</Text>
-            <Button w="100%" color="white" bg="green.300">Explore More</Button>
+            <Button  w="70%" color="white" bg="green.300">Explore More</Button>
            </Stack>
         </Center>
+    </Box>
 
-      
-       </Flex>  */}
+      <Box h='300px' w={{ base: '100%', md: '50%' }}>
+        <SwiperCarousel />
+      </Box>
     </Container>
-
   );
 };
 
