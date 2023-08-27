@@ -1,11 +1,14 @@
-import { CartItem, CartCard } from "../components/cart";
+import React, {useState} from "react";
+import Layout from "../components/layout/index";
+import CartCard from "../components/cart/components/CartCard";
 
-const Cart = () => {
+
+const Products = () => {
   return (
-    <div>
-      <CartItem />
-    </div>
+    <Layout>
+      <CartCard/>
+    </Layout>
   );
 };
 
-export default Cart;
+export default Products;

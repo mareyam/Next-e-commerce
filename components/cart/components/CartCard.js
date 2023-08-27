@@ -15,22 +15,20 @@ import {
   Divider,
   Flex,
 } from "@chakra-ui/react";
-import ProductItems from './ProductItems';
+import CartItems from './CartItems';
 import Header from "./Header";
 
 
-const ProductCard = () => {
-
-
+const CartCard = () => {
   return (
     <Box >
      <Header/>
-     <ProductItems/>
+     <CartItems/>
     </Box>
   );
 };
 
-export default ProductCard;
+export default CartCard;
 
 
 // setSelectedProduct((prevProducts) => [...prevProducts, product]);

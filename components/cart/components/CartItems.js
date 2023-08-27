@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  Center, 
+  Icon, 
+  IconButton,
+  CheckIcon,
   Checkbox,
   Table,
   TableContainer,
@@ -17,14 +21,19 @@ import {
   Heading,
   Text,
   Flex,
+  Box, 
+  Container,
+  Select
 } from "@chakra-ui/react";
+import { DragHandleIcon , TriangleDownIcon } from '@chakra-ui/icons'
+
 import { addProduct, removeProduct } from "../../../toolkit/checkoutSlice";
 import { addProductToCheckout } from "../../../toolkit/cartSlice";
 import useCart from "../../../hooks/useCart";
 import useTotalPrice from "../../../hooks/useTotalPrice";
 import useTotalProducts from "../../../hooks/useTotalProducts";
 
-const CartItem = () => {
+const CartItems = () => {
   const dispatch = useDispatch();
   const { handleRemoveItem, handleEmptyCart } = useCart();
   const totalPrice = useTotalPrice(productItems);
@@ -43,83 +52,93 @@ const CartItem = () => {
   });
 
   return (
-    <TableContainer>
-      <Button onClick={handleEmptyCart}>empty cart</Button>
-      <p>total price is: ${totalPrice}</p>
-      <p>total products are: {totalProducts}</p>
-
-      <Table variant="simple">
-        <Thead>
-          <Tr>
-            <Th>Checkout</Th>
-            <Th>Product</Th>
-            <Th>Price</Th>
-            <Th>Quantity</Th>
-            <Th>Total</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {productItems?.map((item) => {
-            return (
-              <Tr
-                key={item.id}
-                justifyContent="center"
-                alignItems="center"
-                textAlign="center"
-                maxW="500px"
-                borderWidth="1px"
-                borderRadius="lg"
-                overflow="hidden"
-              >
-                <Td>
-                  <Button as="checkbox" onClick={() => handleToCheckout(item)}>
-                    Add
-                  </Button>
-                </Td>
-                <Td w="50%" border="2px solid">
-                  <Flex>
-                    <Image
-                      src={item.image}
-                      alt="candles"
-                      bg="gray.100"
-                      w={{ base: "50%", md: "30%" }}
-                    />
-                    <Stack mt="2" spacing="3" p="2">
-                      <Heading fontSize={{ base: "12px", md: "sm" }}>
-                        {item.title}
-                      </Heading>
-                      <Button
-                        onClick={() => handleRemoveItem(item.id)}
-                        size={{ base: "xs", md: "sm" }}
+    <Container maxW='100vw'>
+      <Flex justifyContent='space-between' display={{base:'block', md:'flex'}}>      
+          <TableContainer w={{base:'100%', md:'60%'}} h='400px' overflowY='scroll'>
+            <Table variant="simple">
+              <Thead>
+                <Tr>
+                  <Th>Checkout</Th>
+                  <Th>Product</Th>
+                  <Th>Price</Th>
+                  <Th>Quantity</Th>
+                  <Th>Total</Th>
+                </Tr>
+              </Thead>
+              <Tbody marginTop='10px'>
+                {productItems?.map((item) => {
+                  return (
+                    <Tr
+                      key={item.id}
+                      justifyContent="center"
+                      alignItems="center"
+                      textAlign="center"
+                      maxW="500px"
+                      borderWidth="1px"
+                      borderRadius="lg"
+                      overflow="hidden"
+                    >
+                      <Td>
+                        <Button as="checkbox" onClick={() => handleToCheckout(item)}>
+                          Add
+                        </Button>
+                      </Td>
+                      <Td w="50%" border="1px solid gray">
+                        <Flex>
+                          <Image
+                            src={item.image}
+                            alt="candles"
+                            bg="gray.100"
+                            w={{ base: "50%", md: "30%" }}
+                          />
+                          <Stack mt="2" spacing="3" p="2">
+                            <Heading fontSize={{ base: "12px", md: "sm" }} w='30px'>
+                              {item.title}
+                            </Heading>
+                            <Button
+                              onClick={() => handleRemoveItem(item.id)}
+                              size={{ base: "xs", md: "sm" }}
+                            >
+                              Remove
+                            </Button>
+                          </Stack>
+                        </Flex>
+                      </Td>
+                      <Td
+                        display={{ base: "none", md: "table-cell" }}
+                        border="1px solid gray"
                       >
-                        Remove
-                      </Button>
-                    </Stack>
-                  </Flex>
-                </Td>
-                <Td
-                  display={{ base: "none", md: "table-cell" }}
-                  border="2px solid"
-                >
-                  <Text fontSize="sm">${item.price} </Text>
-                </Td>
-                <Td border="2px solid">
-                  <Text fontSize="sm">
-                    <Quantity />
-                  </Text>
-                </Td>
-                <Td border="2px solid">
-                  <Text fontSize="sm">{item.price}</Text>
-                </Td>
-              </Tr>
-            );
-          })}
-        </Tbody>
-      </Table>
-    </TableContainer>
+                        <Text fontSize="sm">${item.price} </Text>
+                      </Td>
+                      <Td border="1px solid gray">
+                       quantity
+                      </Td>
+                      <Td border="1px solid gray">
+                        <Text fontSize="sm">{item.price}</Text>
+                      </Td>
+                    </Tr>
+                  );
+                })}
+              </Tbody>
+            </Table>
+            </TableContainer>
+
+            <Box textAlign='center' border='2px solid' w='450px' h='auto' bg='gray.100'>
+            {/* <Button onClick={handleEmptyCart}>empty cart</Button> */}
+            <Heading fontSize='lg'>Cart Total</Heading>
+            <Text>Total Amount: ${totalPrice}</Text>
+            <Text>Total Products: {totalProducts}</Text>
+            </Box>
+        </Flex>   
+      </Container>  
+
+
+
   );
 };
-export default CartItem;
+export default CartItems;
+
+
 
 const Quantity = () => {
   const [quantity, setQuantity] = useState(0);
@@ -217,7 +236,7 @@ const Quantity = () => {
 //                 borderRadius="lg"
 //                 overflow="hidden"
 //               >
-//                 <Td w="50%" border="2px solid">
+//                 <Td w="50%" border="1px solid gray">
 //                   <Flex>
 //                     <Image
 //                       src={item.image}
@@ -240,16 +259,16 @@ const Quantity = () => {
 //                 </Td>
 //                 <Td
 //                   display={{ base: "none", md: "table-cell" }}
-//                   border="2px solid"
+//                   border="1px solid gray"
 //                 >
 //                   <Text fontSize="sm">${item.price} </Text>
 //                 </Td>
-//                 <Td border="2px solid">
+//                 <Td border="1px solid gray">
 //                   <Text fontSize="sm">
 //                     <Quantity />
 //                   </Text>
 //                 </Td>
-//                 <Td border="2px solid">
+//                 <Td border="1px solid gray">
 //                   <Text fontSize="sm">{item.price}</Text>
 //                 </Td>
 //               </Tr>
