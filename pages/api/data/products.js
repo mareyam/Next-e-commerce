@@ -2,7 +2,7 @@ export default {
   Products: [
     {
       id: 1,
-      image: "image 1-1.png",
+      image: "img1.png",
       title: "Soothing Lavender Candle",
       details: "Relaxing lavender scent to calm your senses.",
       isChecked: true,
@@ -10,7 +10,7 @@ export default {
     },
     {
       id: 2,
-      image: "image 1-2.png",
+      image: "img2.png",
       title: "Warm Vanilla Candle",
       details: "Sweet vanilla aroma to create a cozy atmosphere.",
       isChecked: true,
@@ -18,7 +18,7 @@ export default {
     },
     {
       id: 3,
-      image: "image 1-3.png",
+      image: "img3.png",
       title: "Fresh Eucalyptus Candle",
       details: "Invigorating eucalyptus fragrance for a refreshing ambiance.",
       isChecked: true,
@@ -26,7 +26,7 @@ export default {
     },
     {
       id: 4,
-      image: "image 1-4.png",
+      image: "img4.png",
       title: "Spiced Pumpkin Candle",
       details: "Autumnal pumpkin spice scent to set the mood for fall.",
       isChecked: true,
@@ -34,7 +34,7 @@ export default {
     },
     {
       id: 5,
-      image: "image 1-5.png",
+      image: "img5.png",
       title: "Soothing Rose Candle",
       details: "Relaxing lavender scent to calm your senses.",
       isChecked: true,
@@ -42,7 +42,7 @@ export default {
     },
     {
       id: 6,
-      image: "image 1-6.png",
+      image: "img6.png",
       title: "Warm Rose Candle",
       details: "Sweet vanilla aroma to create a cozy atmosphere.",
       isChecked: true,
@@ -50,7 +50,7 @@ export default {
     },
     {
       id: 7,
-      image: "image 1.png",
+      image: "img1.png",
       title: "Dried Eucalyptus Candle",
       details: "Invigorating eucalyptus fragrance for a refreshing ambiance.",
       isChecked: true,
@@ -58,19 +58,19 @@ export default {
     },
     {
       id: 8,
-      image: "image 1-3.png",
+      image: "img3.png",
       title: "Sweet Pumpkin Candle",
       details: "Autumnal pumpkin spice scent to set the mood for fall.",
       isChecked: true,
       price: 8,
     },
-    {
-      id: 9,
-      image: "image 1-3.png",
-      title: "new candle",
-      details: "newcandle",
-      isChecked: true,
-      price: 9,
-    },
+    // {
+    //   id: 9,
+    //   image: "img4.png",
+    //   title: "new candle",
+    //   details: "newcandle",
+    //   isChecked: true,
+    //   price: 9,
+    // },
   ],
 };

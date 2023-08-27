@@ -10,11 +10,12 @@ function LandingImage() {
       justifyContent="center"
       alignItems="center"
       overflow="hidden"
+     
     >
       <Box
         h="100vh"
         w="100vw"
-        bgImage="/bg-image.png"
+        bgImage="/background.png"
         backgroundSize="cover"
         backgroundPosition="center"
       ></Box>

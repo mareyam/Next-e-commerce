@@ -15,14 +15,14 @@ import React from "react";
 const Footer = () => {
   return (
     <Container
-      w="100vw"
       py="20"
-      maxW="container.xl"
+      maxW='100vw' 
       bgColor="black"
       color="white"
       overflow="hidden"
+    
     >
-      <Wrap column={{ base: 1, md: 2 }} spacing="2">
+      <Wrap column={{ base: 1, md: 2 }} spacing="2"   p={{base:'2', md:'5'}} >
         <Box>
           <Heading>Candleaf</Heading>
           <Text>
@@ -32,19 +32,19 @@ const Footer = () => {
         <Spacer />
         <HStack spacing="10" column={{ base: 1, md: 2 }}>
           <VStack align="flex-start">
-            <Text color="green.500">Discovery</Text>
+            <Text color="gray.500">Discovery</Text>
             <Text>New season</Text>
             <Text>Most searched</Text>
             <Text>Most sold</Text>
           </VStack>
           <VStack align="flex-start">
-            <Text color="green.500">Discovery</Text>
+            <Text color="gray.500">Discovery</Text>
             <Text>New season</Text>
             <Text>Most searched</Text>
             <Text>Most sold</Text>
           </VStack>
           <VStack align="flex-start">
-            <Text color="green.500">Discovery</Text>
+            <Text color="gray.500">Discovery</Text>
             <Text>New season</Text>
             <Text>Most searched</Text>
             <Text>Most sold</Text>

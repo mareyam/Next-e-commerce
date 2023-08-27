@@ -34,17 +34,16 @@ const CandleDetail = () => {
     <Container
       maxW="container.lg"
       display={{ base: "block", md: "flex" }}
-      border="2px solid">
-
+     >
   
-    <Box boxSize='500px' w={{base:'100%', md:'50%'}} align='center'>
-      <Center border='2px solid red'  h="100%" >
-          <Stack align='center'>
-            <Heading marginTop="2" fontSize="3xl" color="green.600">
+    <Box boxSize='500px' w={{base:'100%', md:'50%'}} align='left'>
+      <Center   h="100%" >
+          <Stack align='left'>
+            <Heading marginTop="2" fontSize="3xl" color="gray.600">
               50+ Beautiful scented candles made for your home and for your wellness
             </Heading>
             <Text fontSize='md'>Our designer already made a lot of beautiful prototipe of rooms that inspire you</Text>
-            <Button  w="70%" color="white" bg="green.300">Explore More</Button>
+            <Button  w="70%" bg="gray.300">Explore More</Button>
            </Stack>
         </Center>
     </Box>

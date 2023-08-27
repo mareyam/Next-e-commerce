@@ -1,23 +1,29 @@
-import { SimpleGrid, Box, Container, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import TestimonialsCard from "./TestimonialsCard";
+import { SimpleGrid, Box, Container, Heading, Text } from "@chakra-ui/react";
+import TestimonialCarousel from '../../common/TestimonialCarousel';
+
+
 
 const Testimonials = () => {
   return (
     <Container maxW="container.lg">
-      <Box textAlign="center">
+      <Box textAlign="center" mt='5'>
         <Heading>Testimonials</Heading>
         <Text>Some quotes from our happy customers</Text>
       </Box>
-      <SimpleGrid columns={{ base: 2, md: 3 }} spacing="4">
-        {TESTIMONIALS_LIST.map((value) => {
-          return <TestimonialsCard TestimonialsList={value}></TestimonialsCard>;
-        })}
-      </SimpleGrid>
+      <Box bg='gray.100' mb='5'>
+        <TestimonialCarousel/>
+      </Box>
     </Container>
   );
 };
 export default Testimonials;
+
+{/* <SimpleGrid columns={{ base: 2, md: 3 }} spacing="4">
+        {TESTIMONIALS_LIST.map((value) => {
+          return <TestimonialsCard TestimonialsList={value}></TestimonialsCard>;
+        })}
+      </SimpleGrid>
 
 const TESTIMONIALS_LIST = [
   {
@@ -55,4 +61,4 @@ const TESTIMONIALS_LIST = [
     comment: "Pellentesque habitant morbi.",
     name: "Emily Davis",
   },
-];
+]; */}

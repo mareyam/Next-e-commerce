@@ -1,23 +1,21 @@
 import { Box } from "@chakra-ui/react";
 import { LandingImage, CandleDetail, Testimonials } from "../components/hero";
 import {
-  ProductItems,
-  ProductCart,
-  ProductDetail,
+  ProductItems
 } from "../components/products";
-import UseProducts from "../hooks/useProducts";
-import Footer from "../components/layout/components/Footer";
 import { useState } from "react";
+import Layout from "../components/layout";
 
 export default function Home() {
   const [itemSplice, setItemSplice] = useState(8);
   return (
     <Box>
-      <LandingImage />
-      <ProductItems itemSplice={itemSplice} />
-      <CandleDetail />
-      <Testimonials />
-      <Footer />
+      <Layout>
+        <LandingImage />
+        <ProductItems itemSplice={itemSplice} />
+        <CandleDetail />
+        <Testimonials />
+      </Layout>
     </Box>
   );
 }
