@@ -1,10 +1,11 @@
 
 .containerr {
-  border:2px solid blue;
+  /* border:2px solid blue; */
     text-align:center;
     width:450px;
     height:auto;
-    background-color:gray.100;
+    /* background-color:gray.100; */
+    background-color: rgba(240, 240, 240, 0.5);
 }
 
 .cart {
@@ -14,7 +15,7 @@
 }
 .checkout {
   margin:10%;
-  border:2px solid red;
+  /* border:2px solid red; */
   line-height: 3;
 }
 .amount {

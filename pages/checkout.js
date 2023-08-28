@@ -1,13 +1,12 @@
 import React from "react";
-import { CheckoutItems, CheckoutCalculations } from "../components/checkout";
-import Form from "../components/checkout/components/Form";
+import CheckoutCard  from "../components/checkout/components/CheckoutCard";
+import Layout from '../components/layout/index';
 
 const Checkout = () => {
   return (
-    <div>
-      <CheckoutItems />
-      <CheckoutCalculations />
-    </div>
+    <Layout>
+      <CheckoutCard />
+    </Layout>
   );
 };
 

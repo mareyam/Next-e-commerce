@@ -4,7 +4,8 @@ import CheckoutCartTest from "../components/test/CheckoutCartTest";
 const CheckoutTest = () => {
   return (
     <div>
-      <CheckoutCartTest />
+      {/* <CheckoutCartTest /> */}
+      <p>hello</p>
     </div>
   );
 };

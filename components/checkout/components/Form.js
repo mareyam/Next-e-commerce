@@ -24,17 +24,12 @@ const Form = () => {
   } = useForm();
   return (
     <Container>
-      <Box textAlign="center" justifyContent="space-between">
-        <Heading fontSize="25px">Contact</Heading>
-        {/* <p>do you have an account? Login</p> */}
+      <Stack spacing={5}>
+      <Box textAlign="left" justifyContent="space-between">
+        <Heading fontSize="25px">Billing Details</Heading>
       </Box>
-      {/* onSubmit={handleSubmit(handleInput)} */}
-      <VStack as="form">
-        <Box>
-          <CustomField placeholder="Email or mobile phone number" />
-          <Checkbox>Add me to Candleaf newsletter for a 10% discount</Checkbox>
-        </Box>
-        <Heading fontSize="20px">Shipping Address</Heading>
+      <Stack spacing={2}>
+      <Flex display={{base:'block', md:'flex'}}>
         <CustomField
           type="text"
           id="FirstName"
@@ -53,7 +48,7 @@ const Form = () => {
           id="LastName"
           name="Last Name"
           w="100%"
-          placeholder="Maryam"
+          placeholder="Naveed"
           required="this is required"
           minLength="4"
           maxLength="9"
@@ -61,6 +56,7 @@ const Form = () => {
           errors={errors}
           register={register}
         ></CustomField>
+      </Flex>
         <CustomField
           type="text"
           id="Address"
@@ -111,16 +107,18 @@ const Form = () => {
           ></CustomField>
         </Flex>
         <Button
+          mb={4}
           mt={4}
           w="100%"
           colorScheme="green"
           isLoading={isSubmitting}
           type="submit"
         >
-          Confirm
+          Place Order
         </Button>
-      </VStack>
-    </Container>
+      </Stack>
+      </Stack>   
+     </Container>
   );
 };
 

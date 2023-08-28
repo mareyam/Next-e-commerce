@@ -60,7 +60,8 @@ const CartItems = () => {
               <Thead position='sticky' top='0' zIndex='97' backgroundColor='white'>
                 <Tr>
                   <Th>Product</Th>
-                  <Th>Quantity</Th>
+
+                  <Th color={{base:'white', md:'black'}}>Quantity</Th>
                   <Th>Total</Th>
                 </Tr>
               </Thead>
@@ -82,19 +83,22 @@ const CartItems = () => {
                           Add
                         </Button>
                       </Td> */}
-                      <Td w="50%" border="1px solid gray">
+                      <Td w="50%">
                         <Flex>
                           <Image
                             src={item.image}
                             alt="candles"
                             bg="gray.100"
-                            w={{ base: "50%", md: "40%" }}
+                            w={{ base: "100%", md: "40%" }}
                           />
                           <Stack mt="2" spacing="3" p="2">
                             <Heading fontSize={{ base: "12px", md: "sm" }} w='30px'>
                               {item.title}
                             </Heading>
                             <Text fontSize="sm">${item.price} </Text>
+                            <Box display={{base:'none', md:'show'}}>
+                              <Quantity/>
+                            </Box>
                             <IconButton
                               w='auto'
                               isRound={true}
@@ -108,12 +112,15 @@ const CartItems = () => {
                         </Flex>
                       </Td>
                      
-                      <Td border="1px solid gray">
+                      <Td display={{base:"show", md:'hide'}}>
                        <Quantity/>
                       </Td>
-                      <Td border="1px solid gray">
+
+                      <Td >
                         <Text fontSize="sm">${item.price}</Text>
                       </Td>
+                   
+
                     </Tr>
                   );
                 })}

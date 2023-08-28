@@ -1,9 +1,18 @@
 import React from 'react'
 import CheckoutCard from './CheckoutCard'
 import { Spacer, VStack,HStack, Input, Button, Container, SimpleGrid, Box, Image, Stack, Heading, Text, Divider, Flex } from '@chakra-ui/react';
+import { useSelector, useDispatch } from "react-redux";
+
 
 
 const CheckoutItems = () => {
+    const dispatch = useDispatch();
+
+    const productItems = useSelector((state) => {
+      console.log(state);
+      return state.cart;
+    });
+
   return (
     <div>
         <CheckoutCard/>
