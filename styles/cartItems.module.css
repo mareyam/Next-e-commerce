@@ -1,0 +1,27 @@
+
+.containerr {
+  border:2px solid blue;
+    text-align:center;
+    width:450px;
+    height:auto;
+    background-color:gray.100;
+}
+
+.cart {
+  font-size: 15px;
+  padding-top: 10px;
+
+}
+.checkout {
+  margin:10%;
+  border:2px solid red;
+  line-height: 3;
+}
+.amount {
+  justify-content: space-between;
+}
+.checkout_button {
+  width:80%;
+  border-radius:20%;
+  border: 1px solid black
+}

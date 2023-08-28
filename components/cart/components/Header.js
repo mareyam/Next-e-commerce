@@ -18,7 +18,7 @@ import {
 
 const Header = () => {
   return (
-    <Container maxW='container.3xl'>
+    <Container maxW='container.3xl' style={{marginBottom:'2%'}}>
     <Center  textAlign="center" bgImage='/bg-image.png' h={{base:'100%',md:'100px'}} align='center'>
       <Stack>
       <Heading as="h4">Cart</Heading>

@@ -6,6 +6,7 @@ import {
 import { useState } from "react";
 import Layout from "../components/layout";
 
+
 export default function Home() {
   const [itemSplice, setItemSplice] = useState(8);
   return (

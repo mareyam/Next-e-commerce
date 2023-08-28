@@ -25,13 +25,14 @@ import {
   Container,
   Select
 } from "@chakra-ui/react";
-import { DragHandleIcon , TriangleDownIcon } from '@chakra-ui/icons'
-
+import { CloseIcon } from '@chakra-ui/icons'
 import { addProduct, removeProduct } from "../../../toolkit/checkoutSlice";
 import { addProductToCheckout } from "../../../toolkit/cartSlice";
 import useCart from "../../../hooks/useCart";
 import useTotalPrice from "../../../hooks/useTotalPrice";
 import useTotalProducts from "../../../hooks/useTotalProducts";
+
+import styles from '../../../styles/cartItems.module.css'
 
 const CartItems = () => {
   const dispatch = useDispatch();
@@ -52,15 +53,13 @@ const CartItems = () => {
   });
 
   return (
-    <Container maxW='100vw'>
+    <Container maxW='container.lg' > 
       <Flex justifyContent='space-between' display={{base:'block', md:'flex'}}>      
-          <TableContainer w={{base:'100%', md:'60%'}} h='400px' overflowY='scroll'>
+          <TableContainer  w={{base:'100%', md:'100%'}} h='400px' overflowY='scroll'>
             <Table variant="simple">
-              <Thead>
+              <Thead position='sticky' top='0' zIndex='97' backgroundColor='white'>
                 <Tr>
-                  <Th>Checkout</Th>
                   <Th>Product</Th>
-                  <Th>Price</Th>
                   <Th>Quantity</Th>
                   <Th>Total</Th>
                 </Tr>
@@ -78,43 +77,42 @@ const CartItems = () => {
                       borderRadius="lg"
                       overflow="hidden"
                     >
-                      <Td>
+                      {/* <Td>
                         <Button as="checkbox" onClick={() => handleToCheckout(item)}>
                           Add
                         </Button>
-                      </Td>
+                      </Td> */}
                       <Td w="50%" border="1px solid gray">
                         <Flex>
                           <Image
                             src={item.image}
                             alt="candles"
                             bg="gray.100"
-                            w={{ base: "50%", md: "30%" }}
+                            w={{ base: "50%", md: "40%" }}
                           />
                           <Stack mt="2" spacing="3" p="2">
                             <Heading fontSize={{ base: "12px", md: "sm" }} w='30px'>
                               {item.title}
                             </Heading>
-                            <Button
+                            <Text fontSize="sm">${item.price} </Text>
+                            <IconButton
+                              w='auto'
+                              isRound={true}
+                              backgroundColor="gray.100"
+                              icon={<Box><CloseIcon fontSize='7px'/></Box>}
+                              size={{ base: "xs", md: "xs" }}
                               onClick={() => handleRemoveItem(item.id)}
-                              size={{ base: "xs", md: "sm" }}
-                            >
-                              Remove
-                            </Button>
+                            ></IconButton>
+                            
                           </Stack>
                         </Flex>
                       </Td>
-                      <Td
-                        display={{ base: "none", md: "table-cell" }}
-                        border="1px solid gray"
-                      >
-                        <Text fontSize="sm">${item.price} </Text>
+                     
+                      <Td border="1px solid gray">
+                       <Quantity/>
                       </Td>
                       <Td border="1px solid gray">
-                       quantity
-                      </Td>
-                      <Td border="1px solid gray">
-                        <Text fontSize="sm">{item.price}</Text>
+                        <Text fontSize="sm">${item.price}</Text>
                       </Td>
                     </Tr>
                   );
@@ -123,11 +121,13 @@ const CartItems = () => {
             </Table>
             </TableContainer>
 
-            <Box textAlign='center' border='2px solid' w='450px' h='auto' bg='gray.100'>
-            {/* <Button onClick={handleEmptyCart}>empty cart</Button> */}
-            <Heading fontSize='lg'>Cart Total</Heading>
-            <Text>Total Amount: ${totalPrice}</Text>
-            <Text>Total Products: {totalProducts}</Text>
+            <Box w={{base:'100%', md:'40%'}} bg='gray.100' className={styles.containerr}>
+            <Heading  className={styles.cart}>Cart Total</Heading>
+            <Box className={styles.checkout}>
+            <Text className={styles.amount}>Total Amount: <span>${totalPrice}</span></Text>
+            <Text className={styles.product_count}>Total Products: <span>{totalProducts}</span></Text>
+            <Button className={styles.checkout_button}>Checkout </Button>
+            </Box>
             </Box>
         </Flex>   
       </Container>  
