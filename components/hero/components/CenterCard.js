@@ -36,9 +36,9 @@ export default function CenterCard() {
             All handmade with natural soy wax, Candleaf is a companion for all
             your pleasure moments
           </p>
-          <Button className={styles.centerCard_button}>
+          <button className={styles.centerCard_button}>
             BUY NOW
-        </Button>
+        </button>
 
         </Stack>
         

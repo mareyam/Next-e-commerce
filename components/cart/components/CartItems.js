@@ -133,7 +133,7 @@ const CartItems = () => {
             </Table>
             </TableContainer>
 
-            <Box textAlign='center' marginLeft={{base:'0%',md:'10'}} h='300px' border='2px solid' w={{base:'100%', md:'40%'}} bg='gray.100'>
+            <Box textAlign='center' marginLeft={{base:'0%',md:'10'}} h='300px'  w={{base:'100%', md:'40%'}} bg='gray.100'>
             <Heading  className={styles.cart}>Cart Total</Heading>
             <Box className={styles.checkout}>
             <Text className={styles.amount}>Total Amount: <span>${totalPrice}</span></Text>

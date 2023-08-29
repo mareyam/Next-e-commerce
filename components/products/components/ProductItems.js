@@ -7,6 +7,7 @@ import {
   Button,
   Container,
   SimpleGrid,
+  ScaleFade,
   Box,
   Image,
   Stack,
@@ -14,6 +15,7 @@ import {
   Text,
   Divider,
   Flex,
+   
 } from "@chakra-ui/react";
 import { useProducts } from "../../../hooks/useProducts";
 import { useDispatch } from "react-redux";
@@ -24,6 +26,7 @@ const ProductsItems = () => {
   const { data } = useProducts();
   const dispatch = useDispatch();
   const [toggleHover, setToggleHover] = useState(null);
+
 
   const handleAddToCart = (product) => {
     console.log("Selected Product:", product.title);
@@ -42,6 +45,7 @@ const ProductsItems = () => {
   return (
 <Container maxW='container.lg' marginBottom='3%'>
       <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="5">
+
         {/* {data?.slice(0, itemSplice).map((item) => ( */}
         {data?.map((item) => (
           <Box
@@ -63,6 +67,7 @@ const ProductsItems = () => {
           >
             <Box w='100%'>
             {(toggleHover === item.id) && (
+          <ScaleFade initialScale={2} in={true}>
             <Box
               position="absolute"
               top="0"
@@ -80,6 +85,7 @@ const ProductsItems = () => {
          </Stack>
          </Center>
         </Box>
+      </ScaleFade>
       )}
 
       
@@ -107,6 +113,10 @@ const ProductsItems = () => {
           </Box>
         ))}
       </SimpleGrid>
+
+      
+
+
     </Container>
   );
 };

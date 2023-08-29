@@ -13,7 +13,8 @@ import {
   ListIcon,
   Flex,
   Center, 
-  Stack
+  Stack,
+  Link
 } from "@chakra-ui/react";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -24,6 +25,9 @@ import 'swiper/css/scrollbar';
 import 'swiper/css';
 import { useProducts } from "../../../hooks/useProducts";
 import SwiperCarousel from "../../common/SwiperCarousel";
+import NextLink from 'next/link'
+
+
 
 const CandleDetail = () => {
   const { data } = useProducts();
@@ -43,7 +47,10 @@ const CandleDetail = () => {
               50+ Beautiful scented candles made for your home and for your wellness
             </Heading>
             <Text fontSize='md'>Our designer already made a lot of beautiful prototipe of rooms that inspire you</Text>
-            <Button  w="70%" bg="gray.300">Explore More</Button>
+            <Link as={NextLink} href='/products'>
+              <Button  w="70%" bg="gray.300">Explore More</Button>
+             </Link>
+
            </Stack>
         </Center>
     </Box>

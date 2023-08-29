@@ -18,7 +18,7 @@ import {
   } from "@chakra-ui/react";
 import { DragHandleIcon } from '@chakra-ui/icons'
 import NextLink from 'next/link'
-import styles from '../../../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 
 
 

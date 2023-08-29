@@ -14,12 +14,16 @@ import {
   Text,
   Divider,
   Flex,
+  useDisclosure,
+  ScaleFade 
 } from "@chakra-ui/react";
 import ProductItems from './ProductItems';
 import Header from "./Header";
 
 
 const ProductCard = () => {
+const { isOpen, onToggle } = useDisclosure()
+
 
 
   return (

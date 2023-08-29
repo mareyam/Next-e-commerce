@@ -27,10 +27,10 @@ const SwiperCarousel = () => {
       {data?.map((item) => {
         return (
           <SwiperSlide >
-            <Box  border='2px solid' position='relative' w={{ base: '100%', md: '100%' }} h={{base:'300px', md:"500px"}} background='center' backgroundSize='cover' bgImage={item.image}>
+            <Box borderRadius='3%' position='relative' w={{ base: '100%', md: '100%' }} h={{base:'300px', md:"500px"}} background='center' backgroundSize='cover' bgImage={item.image}>
             <Center
                 bg="rgba(255, 255, 255, 0.5)"
-                border='1px solid gray'
+                // border='1px solid gray'
                 borderRadius='5%'
                 color='black'
                 position='absolute'
@@ -63,15 +63,14 @@ const SwiperCarousel = () => {
                 ></IconButton> */}
 
                  <IconButton
-                  border='2px solid'
+                  border='1px solid'
                   isRound={true}
                   w='auto'
                   bottom='5'
                   right='2'
-                  fontSize={{sm:'8px', md:'8px'}}
                   position='absolute'
-                  backgroundColor="gray.100"
                   fontSize={{base:'xl', md:'md'}}
+                  variant="outline"
                   icon={<Box >&#128722;</Box>}
                 ></IconButton>
 
