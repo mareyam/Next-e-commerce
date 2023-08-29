@@ -1,15 +1,24 @@
 import { Center, Stack, Box, Button, Heading, VStack } from "@chakra-ui/react";
 import React from "react";
+import styles from '../../../styles/Home.module.css'
+
 
 export default function CenterCard() {
+  const handleMouseEnter = (id) => {
+    setToggleHover(id);
+  };
+
+  const handleMouseLeave = () => {
+    setToggleHover(null);
+  };
+
   return (
     <Center h="100%">
       <VStack
         textAlign="left"
         padding="5%"
         bgColor="white"
-        opacity="0.75"
-      >
+        opacity="0.75"      >
         <Stack spacing='2'>
           <Heading
             marginTop="5%"
@@ -27,9 +36,10 @@ export default function CenterCard() {
             All handmade with natural soy wax, Candleaf is a companion for all
             your pleasure moments
           </p>
-          <Button bg='gray.200' fontSize="12px" w='50%'>
+          <Button className={styles.centerCard_button}>
             BUY NOW
         </Button>
+
         </Stack>
         
       </VStack>

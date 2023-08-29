@@ -32,19 +32,19 @@ const Footer = () => {
         <Spacer />
         <HStack spacing="10" column={{ base: 1, md: 2 }}>
           <VStack align="flex-start">
-            <Text color="gray.500">Discovery</Text>
+            <Text color="gray.300">Discovery</Text>
             <Text>New season</Text>
             <Text>Most searched</Text>
             <Text>Most sold</Text>
           </VStack>
           <VStack align="flex-start">
-            <Text color="gray.500">Discovery</Text>
+            <Text color="gray.300">Discovery</Text>
             <Text>New season</Text>
             <Text>Most searched</Text>
             <Text>Most sold</Text>
           </VStack>
           <VStack align="flex-start">
-            <Text color="gray.500">Discovery</Text>
+            <Text color="gray.300">Discovery</Text>
             <Text>New season</Text>
             <Text>Most searched</Text>
             <Text>Most sold</Text>

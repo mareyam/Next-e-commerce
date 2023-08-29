@@ -23,7 +23,8 @@ import {
   Flex,
   Box, 
   Container,
-  Select
+  Select,
+  Link
 } from "@chakra-ui/react";
 import { CloseIcon } from '@chakra-ui/icons'
 import { addProduct, removeProduct } from "../../../toolkit/checkoutSlice";
@@ -33,6 +34,10 @@ import useTotalPrice from "../../../hooks/useTotalPrice";
 import useTotalProducts from "../../../hooks/useTotalProducts";
 
 import styles from '../../../styles/cartItems.module.css'
+import { DragHandleIcon } from '@chakra-ui/icons'
+import NextLink from 'next/link'
+
+
 
 const CartItems = () => {
   const dispatch = useDispatch();
@@ -53,7 +58,7 @@ const CartItems = () => {
   });
 
   return (
-    <Container maxW='container.lg' > 
+    <Container maxW='container.lg'  marginBottom='5'> 
       <Flex justifyContent='space-between' display={{base:'block', md:'flex'}}>      
           <TableContainer  w={{base:'100%', md:'100%'}} h='400px' overflowY='scroll'>
             <Table variant="simple">
@@ -128,12 +133,15 @@ const CartItems = () => {
             </Table>
             </TableContainer>
 
-            <Box w={{base:'100%', md:'40%'}} bg='gray.100' className={styles.containerr}>
+            <Box textAlign='center' marginLeft={{base:'0%',md:'10'}} h='300px' border='2px solid' w={{base:'100%', md:'40%'}} bg='gray.100'>
             <Heading  className={styles.cart}>Cart Total</Heading>
             <Box className={styles.checkout}>
             <Text className={styles.amount}>Total Amount: <span>${totalPrice}</span></Text>
             <Text className={styles.product_count}>Total Products: <span>{totalProducts}</span></Text>
-            <Button className={styles.checkout_button}>Checkout </Button>
+            <Link as={NextLink} href='/checkout'>
+              <Button className={styles.checkout_button}>Checkout </Button>
+            </Link>
+
             </Box>
             </Box>
         </Flex>   

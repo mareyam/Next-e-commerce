@@ -21,7 +21,7 @@ import Header from "./Header";
 
 const CartCard = () => {
   return (
-    <Box >
+    <Box>
      <Header/>
      <CartItems/>
     </Box>

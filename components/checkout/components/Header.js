@@ -19,14 +19,14 @@ import {
 
 const Header = () => {
   return (
-    <Container marginBottom='5' maxW='container.3xl'>
+    <Box marginBottom='5'>
       <Center backgroundPosition='center'  backgroundSize="cover" textAlign="center" bgImage='/background.png' h={{base:'100%',md:'100px'}} align='center'>
       <Stack>
       <Heading as="h4">Checkout</Heading>
       <Text fontSize="12px">Checkout it for you or for your beloved ones</Text>
       </Stack>
       </Center>
-    </Container>
+    </Box>
   )
 }
 

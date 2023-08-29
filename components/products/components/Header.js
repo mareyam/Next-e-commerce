@@ -19,7 +19,7 @@ import Filters from '../../common/Filters'
 
 const Header = () => {
   return (
-    <Container maxW='container.3xl'>
+    <Box>
     <Center  backgroundPosition='center'  backgroundSize="cover" textAlign="center" bgImage='/background.png' h={{base:'100%',md:'100px'}} align='center'>
       <Stack>
       <Heading as="h4">Products</Heading>
@@ -27,7 +27,7 @@ const Header = () => {
       </Stack>
     </Center>
     <Filters/>
-  </Container>
+  </Box>
   )
 }
 

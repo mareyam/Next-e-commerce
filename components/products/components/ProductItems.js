@@ -40,8 +40,8 @@ const ProductsItems = () => {
 
 
   return (
-<Container maxW='container.lg'>
-      <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="2">
+<Container maxW='container.lg' marginBottom='3%'>
+      <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="5">
         {/* {data?.slice(0, itemSplice).map((item) => ( */}
         {data?.map((item) => (
           <Box
@@ -58,6 +58,7 @@ const ProductsItems = () => {
             onMouseEnter={() => handleMouseEnter(item.id)}
             onMouseLeave={handleMouseLeave}
             style={{alignItems: 'end', display:'flex'}}
+            
            
           >
             <Box w='100%'>

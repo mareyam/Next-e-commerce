@@ -29,7 +29,7 @@ const Form = () => {
         <Heading fontSize="25px">Billing Details</Heading>
       </Box>
       <Stack spacing={2}>
-      <Flex display={{base:'block', md:'flex'}}>
+      <Flex display={{base:'block', md:'flex'}} gap='5'>
         <CustomField
           type="text"
           id="FirstName"
@@ -78,7 +78,7 @@ const Form = () => {
           placeholder="Shipping note (optional)"
           register={register}
         ></CustomField>
-        <Flex>
+        <Flex  display={{base:'block', md:'flex'}} gap='5'>
           <CustomField
             type="text"
             id="City"
@@ -113,6 +113,7 @@ const Form = () => {
           colorScheme="green"
           isLoading={isSubmitting}
           type="submit"
+          fontFamily="Gruppo"
         >
           Place Order
         </Button>

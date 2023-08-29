@@ -27,7 +27,7 @@ const SwiperCarousel = () => {
       {data?.map((item) => {
         return (
           <SwiperSlide >
-            <Box  position='relative' w={{ base: '100%', md: '100%' }} h={{base:'300px', md:"500px"}} background='center' backgroundSize='cover' bgImage={item.image}>
+            <Box  border='2px solid' position='relative' w={{ base: '100%', md: '100%' }} h={{base:'300px', md:"500px"}} background='center' backgroundSize='cover' bgImage={item.image}>
             <Center
                 bg="rgba(255, 255, 255, 0.5)"
                 border='1px solid gray'
@@ -44,19 +44,36 @@ const SwiperCarousel = () => {
                 <Text fontSize={{base:'sm', md:'md'}}>{item.id} - {item.title}</Text>
                 <Heading fontSize={{base:'sm', md:'md'}}>{item.details}</Heading>
             </Stack>
+
+          
+
             
-            <IconButton
-                  w='50px'
-                  bottom='0'
-                  position='absolute'
-                  left={{base:'200px',md:'250px'}}
-                  backgroundColor="gray.100"
-                  fontSize={{base:'xl', md:'2xl'}}
-                  
-                  icon={<Box ><ArrowForwardIcon /></Box>}
-                ></IconButton>
+           
         
             </Center>
+            {/* <IconButton
+                  w='auto'
+                  right='0'
+                  bottom='0'
+                  position='absolute'
+                  isRound={true}
+                  onClick={() => handleAddToCart(item)}
+                  backgroundColor="gray.100"
+                  icon={<Box>&#128722;</Box>}
+                ></IconButton> */}
+
+                 <IconButton
+                  border='2px solid'
+                  isRound={true}
+                  w='auto'
+                  bottom='5'
+                  right='2'
+                  fontSize={{sm:'8px', md:'8px'}}
+                  position='absolute'
+                  backgroundColor="gray.100"
+                  fontSize={{base:'xl', md:'md'}}
+                  icon={<Box >&#128722;</Box>}
+                ></IconButton>
 
 
 

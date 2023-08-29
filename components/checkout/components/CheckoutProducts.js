@@ -33,20 +33,20 @@ const CheckoutProducts = () => {
 
 
   return (
-    <Container maxW="container.xl" className="container"> 
+    <Container maxW="container.xl" className="container" marginTop='10' marginBottom='5'> 
      <Flex direction={{ base: "column", md: "row" }} flexWrap="wrap">
-        <Box  w={{ base: "100%", md: "50%" }}>
+        <Box  w={{ base: "100%", md: "45%" }}>
            <Form />
        </Box>
-       <Box  w={{ base: "100%", md: "50%" }} >
-         <Flex justifyContent='space-between'>
+       <Box  w={{ base: "100%", md: "55%" }} >
+         <Flex justifyContent='space-between' >
          <Box>
             <Heading fontSize={{base:'md',md:'2xl'}}>Products</Heading>
         </Box>
          <Box><Heading fontSize={{base:'md',md:'2xl'}}>SubTotal</Heading></Box>
          </Flex>
          <Flex justifyContent='space-between' >
-         <Box w='100%' overflowY='scroll'>
+         <Box w='100%' overflowY='auto'>
            {productItems?.map((item) => (
             <Box marginBottom='2' >
               <Flex justifyContent='space-between'>
@@ -59,14 +59,16 @@ const CheckoutProducts = () => {
                     h={{ base: "100px", md: "150px" }}
                   />
                    <Stack spacing="3" p="2" justifyContent='center'>
-                    <Heading fontSize={{ base: "12px", md: "lg" }}>
+                    <Heading fontFamily="Gruppo" fontSize={{ base: "12px", md: "lg" }}>
                       {item.title}
                     </Heading>
                     <Text
-                      fontSize={{ base: "12px", md: "md" }}
+                      fontSize={{ base: "12px", md: "lg" }}
                       color="green.400"
+                      fontFamily="Gruppo"
+                      fontWeight='700'
                     >
-                      #{item.price}
+                      Id: #{item.price}
                     </Text>
                   </Stack>
 
