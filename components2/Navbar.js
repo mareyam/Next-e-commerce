@@ -18,35 +18,33 @@ import {
   } from "@chakra-ui/react";
 import { DragHandleIcon } from '@chakra-ui/icons'
 import NextLink from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/navbar.module.css'
+
 
 
 
 const Navbar = () => {
     const [toggleHam, setToggleHam] = useState(false)
   return (
-    <Container bg='gray.100' maxW='100vw' position='sticky' top='0' zIndex='105'>
-            <Flex align='center' p={{base:'2', md:'5'}} justifyContent='space-between'>
-              
+    <container className={styles.container}>
+            <div className={styles.flex}>
                 <Link as={NextLink} href='/'>
                   <Heading>Logo</Heading>
                 </Link>
 
-                <Box display={{base:'block', md:'none'}}>
+                <div className={styles.box1}>
                 <IconButton
-                  transition= 'all 0.3s ease-out'
-                  w='50px'
+                  className={styles.icon1}
                   transform={toggleHam ? "rotate(0deg)" : "rotate(90deg)"}
-                  fontSize={{base:'xl', md:'2xl'}}
                   icon={<Box ><DragHandleIcon /></Box>}
                   onClick={() => setToggleHam(!toggleHam)}
                 ></IconButton>
-                </Box>
+                </div>
                 
                 
-                <Box display={{base:'none', md:'block'}}>
-                <Box position='relative' display={{base:'block', md:'flex'}} justifyContent='space-around' gap='3'>
-                   <Link className={styles.linkhover} as={NextLink} href='/'>
+                <div className={styles.box2}>
+                <div className={styles.box3} gap='3'>
+                   <Link as={NextLink} href='/'>
                       Home
                     </Link>
                     <Link as={NextLink} href='/products'>
@@ -55,13 +53,13 @@ const Navbar = () => {
                     <Link as={NextLink} href='/cart'>
                       Cart
                     </Link>
-                </Box>
-                </Box>
-            </Flex>
+                </div>
+                </div>
+            </div>
             
             {toggleHam &&
-            <Box top='12' w='auto' display={{base:'block', md:'none'}}  right='0' bg='white' zIndex='105' position='absolute' h='150px' w='150px'>
-                    <Stack spacing='5'>
+            <div className={styles.box4}>
+                    <div className={styles.box5}>
                     <Link as={NextLink} href='/'>
                       Home
                     </Link>
@@ -72,9 +70,9 @@ const Navbar = () => {
                       Cart
                     </Link>
 
-                    </Stack>
-            </Box>}
-    </Container>
+                    </div>
+            </div>}
+    </container>
    
   )
 }

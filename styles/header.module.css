@@ -1,0 +1,173 @@
+.container {
+    border: 2px solid red;
+    align-items:center;
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    background-color: black;
+    color: white;
+}
+.heading {
+    text-align: center;
+    font-size: 32px;
+
+}
+
+.ul {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    justify-content: center;
+    width: 500px;
+    border: 2px solid red;
+    align-items:center;
+    flex-wrap: wrap;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .earth {
+    justify-content: center;
+    display: flex;
+    position: relative;
+    border: 2px solid red;
+
+  }
+  .earth img {
+    width:75%;
+    animation: rotation 50s linear infinite;
+    padding: 5%; 
+    border: 2px solid green;
+
+}
+.circle{
+    position: absolute;
+    /* top: 5; */
+    border: 2px solid yellow;
+    border-radius: 50%; 
+    display: inline-block; /* To adjust the size to the content */
+    width: 50%;
+    height: 100%;
+    animation: rotation 50s linear infinite;
+
+}
+.li:first-child {
+    border: 2px solid orange;
+    border-radius: 50%; 
+    width: 50px;
+    justify-content: center;
+    display:flex;
+    flex-direction:column;
+    height:50px; 
+    text-align: center;    
+    position: absolute;
+    left: 100px;
+    animation: rotation 50s linear infinite;
+}
+
+.li:nth-child(2) {
+    border: 2px solid orange;
+    border-radius: 50%; 
+    width: 50px;
+    justify-content: center;
+    display:flex;
+    flex-direction:column;
+    height:50px; 
+    text-align: center;    
+    position: absolute;
+    left: 200px;
+    top: -30px;
+    animation: rotation 50s linear infinite;
+}
+
+
+.li:nth-child(3) {
+    border: 2px solid orange;
+    border-radius: 50%; 
+    width: 50px;
+    justify-content: center;
+    display:flex;
+    flex-direction:column;
+    height:50px; 
+    text-align: center;    
+    position: absolute;
+    left: 300px;
+    animation: rotation 50s linear infinite;
+}
+
+.li:nth-child(4) {
+    border: 2px solid orange;
+    border-radius: 50%; 
+    width: 50px;
+    justify-content: center;
+    display:flex;
+    flex-direction:column;
+    height:50px; 
+    text-align: center;    
+    position: absolute;
+    left: 380px;
+    top:55px;
+    animation: rotation 50s linear infinite;
+}
+
+.li:nth-child(5) {
+    border: 2px solid orange;
+    border-radius: 50%; 
+    width: 50px;
+    justify-content: center;
+    display:flex;
+    flex-direction:column;
+    height:50px; 
+    text-align: center;    
+    position: absolute;
+    left: 420px;
+    top:150px;
+    animation: rotation 50s linear infinite;
+}
+
+
+.li:nth-child(6) {
+    border: 2px solid orange;
+    border-radius: 50%; 
+    width: 50px;
+    justify-content: center;
+    display:flex;
+    flex-direction:column;
+    height:50px; 
+    text-align: center;    
+    position: absolute;
+    left: 420px;
+    top:250px;
+    animation: rotation 50s linear infinite;
+}
+
+.li:nth-child(7) {
+    border: 2px solid orange;
+    border-radius: 50%; 
+    width: 50px;
+    justify-content: center;
+    display:flex;
+    flex-direction:column;
+    height:50px; 
+    text-align: center;    
+    position: absolute;
+    left: 350px;
+    top:320px;
+    animation: rotation 50s linear infinite;
+}
+
+@media only screen and (max-width: 768px) {
+    .ul {
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+

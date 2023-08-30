@@ -1,0 +1,44 @@
+.container {
+    border: 2px solid red;
+    padding: 0 20px 0 20px;
+    max-width: 100vw;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+.wrap {
+    gap: 20px;
+    justify-content: space-between;
+}
+.hstack {
+    gap: 20px;
+}
+.vstack {
+    align-items: flex-start;
+}
+.vstack p:first-child {
+    color: gray;
+}
+@media only screen and (max-width: 768px) {
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .hstack {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .wrap {
+        display: flex;
+        flex-direction: row;
+        padding: 50px;
+    }
+    .hstack {
+        display: flex;
+        flex-direction: row;
+    }
+}

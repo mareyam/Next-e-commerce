@@ -1,10 +1,10 @@
 import React from 'react'
-import Template from '../components/cart/components/Template'
+import Layout from '../components2/Layout'
 
 const Practice = () => {
   return (
     <div>
-        <Template/>
+      <Layout/>
     </div>
   )
 }
