@@ -45,13 +45,13 @@ const Navbar = () => {
                 <div className={styles.box2}>
                 <div className={styles.box3} gap='3'>
                    <Link as={NextLink} href='/'>
-                      Home
+                      Link 1
                     </Link>
                     <Link as={NextLink} href='/products'>
-                      Products
+                      Link 2
                     </Link>
                     <Link as={NextLink} href='/cart'>
-                      Cart
+                      Link 3
                     </Link>
                 </div>
                 </div>

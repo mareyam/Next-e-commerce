@@ -2,14 +2,15 @@ import React from 'react'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import Header from './Header'
+import { Aestroid } from './Aestroid'
 
 
-const Layout = ( {children}) => {
+const Layout = () => {
   return (
     <div>
         <Navbar/>
+        <Aestroid/>
         <Header/>
-        {children}
         <Footer/>
     </div>
   )

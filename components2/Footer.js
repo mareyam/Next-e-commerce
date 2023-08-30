@@ -8,8 +8,8 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.wrap}>
         <div>
-            <h1>Candleaf</h1>
-            <p>
+            <h1 className={styles.heading}>Candleaf</h1>
+            <p className={styles.para}>
               Your natural candle made for your home and for your wellness.
             </p>
         </div>

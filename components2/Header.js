@@ -5,6 +5,16 @@ import styles from '../styles/header.module.css'
 const Header = () => {
   return (
     <div className={styles.container}>
+       <div className={styles.aestroid}>
+        <div className={styles.stone}>11</div>
+        <div className={styles.stone}>2</div>
+        <div className={styles.stone}>3</div>
+        <div className={styles.stone}></div>
+        <div className={styles.stone}></div>
+        <div className={styles.stone}></div>
+        <div className={styles.stone}></div>
+    </div>
+    
         <h1 className={styles.heading}>Global Warming Disasters</h1>
         <ul className={styles.ul}>
             <li>Temperature</li>
@@ -19,13 +29,30 @@ const Header = () => {
             <img src={'/earth.png'}/>
             <div className={styles.circle}>
                 <ul>
-                    <div className={styles.li}><li>1</li></div>
-                    <div className={styles.li}><li>2</li></div>
-                    <div className={styles.li}><li>3</li></div>
-                    <div className={styles.li}><li>4</li></div>
-                    <div className={styles.li}><li>5</li></div>
-                    <div className={styles.li}><li>6</li></div>
-                    <div className={styles.li}><li>7</li></div>
+                    <div className={styles.li}>
+                      <img src={'/climate.png'}/>
+                    </div>
+                    <div className={styles.li}>
+                      <img src={'/bio.png'}/>
+                    </div>
+                    <div className={styles.li}>
+                      <img src={'/environment.png'}/>
+                    </div>
+                    <div className={styles.li}>
+                      <img src={'/holding-hand.png'}/>
+                    </div>
+                    <div className={styles.li}>
+                      <img src={'/eco-energy.png'}/>
+                    </div>
+                    <div className={styles.li}>
+                      <img src={'/diwali.png'}/>
+                    </div>
+                    <div className={styles.li}>
+                      <img src={'/env.png'}/>
+                    </div>
+                    <div className={styles.li}>
+                      <img src={'/environment.png'}/>
+                    </div>
                 </ul>
         </div>
 
