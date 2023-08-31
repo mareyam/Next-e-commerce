@@ -5,15 +5,22 @@ import styles from '../styles/header.module.css'
 const Header = () => {
   return (
     <div className={styles.container}>
-       <div className={styles.aestroid}>
-        <div className={styles.stone}>11</div>
-        <div className={styles.stone}>2</div>
-        <div className={styles.stone}>3</div>
-        <div className={styles.stone}></div>
-        <div className={styles.stone}></div>
-        <div className={styles.stone}></div>
-        <div className={styles.stone}></div>
-    </div>
+      <div className={styles.aestroid}>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>        
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+          <div className={styles.stone}></div>
+      </div> 
     
         <h1 className={styles.heading}>Global Warming Disasters</h1>
         <ul className={styles.ul}>
@@ -28,36 +35,35 @@ const Header = () => {
         <div className={styles.earth}>
             <img src={'/earth.png'}/>
             <div className={styles.circle}>
-                <ul>
+                <ul className={styles.ul}>
                     <div className={styles.li}>
-                      <img src={'/climate.png'}/>
+                      <img src={'/image.png'}/>
                     </div>
                     <div className={styles.li}>
-                      <img src={'/bio.png'}/>
+                      <img src={'/image (1).png'}/>
                     </div>
                     <div className={styles.li}>
-                      <img src={'/environment.png'}/>
+                      <img src={'/image (2).png'}/>
                     </div>
                     <div className={styles.li}>
-                      <img src={'/holding-hand.png'}/>
+                      <img src={'/image (3).png'}/>
                     </div>
                     <div className={styles.li}>
-                      <img src={'/eco-energy.png'}/>
+                      <img src={'/image (4).png'}/>
                     </div>
                     <div className={styles.li}>
-                      <img src={'/diwali.png'}/>
+                      <img src={'/image (5).png'}/>
                     </div>
                     <div className={styles.li}>
-                      <img src={'/env.png'}/>
+                      <img src={'/image (6).png'}/>
                     </div>
                     <div className={styles.li}>
-                      <img src={'/environment.png'}/>
+                      <img src={'/image (7).png'}/>
                     </div>
                 </ul>
         </div>
 
         </div>
-       
     </div>
   )
 }

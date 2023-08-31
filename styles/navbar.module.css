@@ -2,13 +2,14 @@
     min-width: 100vw;
     background-color: black;
     color: white;
+    
 }
 .flex {
     display: flex;
     align-items: center;
     padding: 10px; 
     justify-content: space-between;
-    background-color: black;
+    background-color: #292C45;;
     color: white;
 }
 .icon1 {
