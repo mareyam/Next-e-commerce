@@ -6,8 +6,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css';
-import {Image,Flex,  Box, Text, Heading, Stack, Center, IconButton} from "@chakra-ui/react";
-import { ArrowForwardIcon } from '@chakra-ui/icons'
+import {Image,Flex,  Box, Text, Heading, Stack, Center, IconButton, StylesProvider} from "@chakra-ui/react";
+import styles from '../../styles/header.module.css';
 
 import { useProducts } from '../../hooks/useProducts';
 
@@ -33,7 +33,7 @@ const SwiperCarousel = () => {
                 w='100%'
                 h='100%'
                 >
-            <Flex  align='center' bg='white' p='5'>
+            <Flex  align='center' bg='white' p='5' className={styles.flex}>
             <Image
               borderRadius="full" 
               src={item.image}

@@ -26,6 +26,7 @@ import 'swiper/css';
 import { useProducts } from "../../../hooks/useProducts";
 import SwiperCarousel from "../../common/SwiperCarousel";
 import NextLink from 'next/link'
+import styles from '../../../styles/products.module.css';
 
 
 
@@ -48,11 +49,12 @@ const CandleDetail = () => {
             </Heading>
             <Text fontSize='md'>Our designer already made a lot of beautiful prototipe of rooms that inspire you</Text>
             <Link as={NextLink} href='/products'>
-              <Button  w="70%" bg="gray.300">Explore More</Button>
+              <button  className={styles.explore_more} w="70%" bg="gray.300">Explore More</button>
              </Link>
-
            </Stack>
+
         </Center>
+
     </Box>
 
       <Box h='300px' w={{ base: '100%', md: '50%' }}>

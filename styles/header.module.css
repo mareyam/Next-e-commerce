@@ -60,7 +60,7 @@
 }
 .circle:hover {
     box-shadow: 0 0 500px rgba(52, 152, 219, 1);
-    transition: box-shadow 0.1s ease-in-out;
+    transition: box-shadow 1s ease-in-out;
 }
 
 .circle ul {
@@ -258,6 +258,10 @@
     }
 }
 
+.flex:hover {
+    box-shadow: 0 0 40px rgb(188, 188, 188);
+    transition: box-shadow 1s ease-in-out;
+}
 
 /* .container {
     align-items:center;

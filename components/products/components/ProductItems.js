@@ -67,7 +67,7 @@ const ProductsItems = () => {
           >
             <Box w='100%'>
             {(toggleHover === item.id) && (
-          <ScaleFade initialScale={2} in={true}>
+          <Box>
             <Box
               position="absolute"
               top="0"
@@ -85,7 +85,7 @@ const ProductsItems = () => {
          </Stack>
          </Center>
         </Box>
-      </ScaleFade>
+      </Box>
       )}
 
       

@@ -41,7 +41,6 @@ export default function CenterCard() {
         </button>
 
         </Stack>
-        
       </VStack>
     </Center>
   );
