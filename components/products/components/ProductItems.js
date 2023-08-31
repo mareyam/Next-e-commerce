@@ -62,11 +62,11 @@ const ProductsItems = () => {
             onMouseEnter={() => handleMouseEnter(item.id)}
             onMouseLeave={handleMouseLeave}
             style={{alignItems: 'end', display:'flex'}}
+            role='group'
             
            
           >
             <Box w='100%'>
-            {(toggleHover === item.id) && (
           <Box>
             <Box
               position="absolute"
@@ -78,6 +78,9 @@ const ProductsItems = () => {
               display="flex"
               justifyContent="center"
               alignItems="center"
+              opacity='0'
+              _groupHover={{opacity:'1'}}
+              transition='all 0.5s ease'
             >
               <Center textAlign='center'>
               <Stack align='center'>
@@ -86,7 +89,6 @@ const ProductsItems = () => {
          </Center>
         </Box>
       </Box>
-      )}
 
       
               <Stack spacing="0" p="2"  

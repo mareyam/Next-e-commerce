@@ -121,12 +121,13 @@
 
 .centerCard_button {
   color: white;
+  height: 4rem;
   background-color:gray;
   font-size: 12px;
   padding: 1rem 2rem;
   transition-property: box-shadow, background, font-size;
   transition-duration: 0.3s, 0.5s, 0.5s;
-  transition-timing-function:ease-in-out,ease-in-out, ease-in-out;
+  transition-timing-function:ease;
 }
 
 .centerCard_button:hover { 
@@ -134,7 +135,6 @@
   box-shadow: 0 0 20px rgb(188, 188, 188);
   font-size: 16px;
   color: white;
-  transition: box-shadow 0.3s ease-in-out;
 }
 
 .linkhover {
