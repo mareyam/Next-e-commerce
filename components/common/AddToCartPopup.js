@@ -1,0 +1,131 @@
+import React from 'react';
+import {
+  HStack, Stack, VStack, Heading, Text, Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Button, IconButton, Box, Image
+} from '@chakra-ui/react';
+import { useSelector } from "react-redux";
+import useCart from '../../hooks/useCart';
+import { CloseIcon } from '@chakra-ui/icons';
+
+const AddToCartPopup = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { handleRemoveItem, handleEmptyCart } = useCart();
+
+  const productItems = useSelector((state) => {
+    console.log("state in popup");
+    console.log(state);
+    return state.cart;
+  });
+
+  return (
+    <>
+      <IconButton
+        w='auto'
+        isRound={true}
+        onClick={onOpen}
+        backgroundColor="gray.100"
+        icon={<Box>&#128722;</Box>}
+      ></IconButton>
+      <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerHeader borderBottomWidth='1px'>Cart</DrawerHeader>
+          <DrawerBody>
+            {productItems?.map((item) => (
+              <HStack key={item.id} marginTop='2%' align='flex-start'> 
+                <Image
+                  src={item.image}
+                  alt="candles"
+                  bg="gray.100"
+                  borderRadius='10%'
+                  objectFit='cover'
+                  w={{ base: '100px', md: '100px' }}
+                  h={{ base: '100px', md: '100px' }}
+                  
+                />
+                <Stack top='0'>
+                  <Text fontSize='sm'>{item.title}</Text>
+                  <Text fontSize='xs'>$.{item.price}.00</Text>
+                </Stack>
+                <Stack>
+                  <IconButton
+                    w='auto'
+                    isRound={true}
+                    backgroundColor="gray.100"
+                    icon={<Box><CloseIcon fontSize='7px' /></Box>}
+                    size={{ base: "xs", md: "xs" }}
+                    onClick={() => handleRemoveItem(item.id)}
+                  ></IconButton>
+                </Stack>
+              </HStack>
+            ))}
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
+  )
+}
+export default AddToCartPopup;
+
+// import React from 'react'
+// import {
+//     HStack, Stack, VStack, Heading, Text, Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody,useDisclosure, Button,IconButton, Box, 
+//   } from '@chakra-ui/react'
+// import { useSelector } from "react-redux";
+// import useCart from '../../hooks/useCart';
+// import { CloseIcon } from '@chakra-ui/icons'
+
+// const AddToCartPopup = () => {
+//     const { isOpen, onOpen, onClose } = useDisclosure()
+//     const { handleRemoveItem, handleEmptyCart } = useCart();
+
+//       const productItems = useSelector((state) => {
+//         console.log("state in popup");
+//         console.log(state);
+//     return state.cart;
+//   });
+  
+//     return (
+//       <>
+//         <IconButton
+//                   w='auto'
+//                   isRound={true}
+//                   onClick={onOpen}
+//                   backgroundColor="gray.100"
+//                   icon={<Box>&#128722;</Box>}
+//                 ></IconButton>
+//         <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
+//           <DrawerOverlay />
+//           <DrawerContent>
+//             <DrawerHeader borderBottomWidth='1px'>Cart</DrawerHeader>
+//             <DrawerBody>
+//               {productItems?.map((item) => {
+//                 return (
+//                 <HStack>
+//                           <Image
+//                             src={item.image}
+//                             alt="candles"
+//                             bg="gray.100"
+//                             w={{ base: "100%", md: "40%" }}
+//                           />
+//                           <Stack>
+//                             <Text>{item.title}</Text>
+//                             <Text>{item.price}</Text>
+//                           </Stack>
+//                            <Stack>
+//                             <IconButton
+//                               w='auto'
+//                               isRound={true}
+//                               backgroundColor="gray.100"
+//                               icon={<Box><CloseIcon fontSize='7px'/></Box>}
+//                               size={{ base: "xs", md: "xs" }}
+//                               onClick={() => handleRemoveItem(item.id)}
+//                             ></IconButton>
+//                           </Stack>
+//                 </HStack>)})}
+//             </DrawerBody>
+//           </DrawerContent>
+//         </Drawer>
+//       </>
+//     )
+//   }
+// export default AddToCartPopup;

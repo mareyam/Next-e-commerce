@@ -32,7 +32,7 @@ import { addProductToCheckout } from "../../../toolkit/cartSlice";
 import useCart from "../../../hooks/useCart";
 import useTotalPrice from "../../../hooks/useTotalPrice";
 import useTotalProducts from "../../../hooks/useTotalProducts";
-
+import Quantity from "../../common/Quantity";
 import styles from '../../../styles/cartItems.module.css'
 import { DragHandleIcon } from '@chakra-ui/icons'
 import NextLink from 'next/link'
@@ -53,7 +53,7 @@ const CartItems = () => {
     console.log("value of addProductToCheckout in test" + product.isChecked);
   };
   const productItems = useSelector((state) => {
-    console.log(state);
+    // console.log(state);
     return state.cart;
   });
 
@@ -155,25 +155,7 @@ export default CartItems;
 
 
 
-const Quantity = () => {
-  const [quantity, setQuantity] = useState(0);
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-  const handleDecrement = () => {
-    setQuantity(quantity - 1);
-  };
-  const handleInput = (value) => {
-    setQuantity(quantity + value);
-  };
-  return (
-    <HStack maxW="320px">
-      <Button onClick={handleIncrement}>+</Button>
-      <Input onClick={handleInput} />
-      <Button onClick={handleDecrement}>-</Button>
-    </HStack>
-  );
-};
+
 
 // import { useState, useEffect } from "react";
 // import {

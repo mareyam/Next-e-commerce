@@ -9,6 +9,7 @@ import {
     SimpleGrid,
     Box,
     Image,
+    HStack,
     Stack,
     Heading,
     Text,
@@ -19,6 +20,7 @@ import {
 import { DragHandleIcon } from '@chakra-ui/icons'
 import NextLink from 'next/link'
 import styles from '../../../styles/Home.module.css'
+import AddToCartPopup from '../../common/AddToCartPopup';
 
 
 
@@ -45,7 +47,8 @@ const Navbar = () => {
                 
                 
                 <Box display={{base:'none', md:'block'}}>
-                <Box position='relative' display={{base:'block', md:'flex'}} justifyContent='space-around' gap='3'>
+                <HStack position='relative' display={{base:'block', md:'flex'}} justifyContent='space-around' gap='3'>
+                  <AddToCartPopup/>
                    <Link className={styles.linkhover} as={NextLink} href='/'>
                       Home
                     </Link>
@@ -55,7 +58,7 @@ const Navbar = () => {
                     <Link as={NextLink} href='/cart'>
                       Cart
                     </Link>
-                </Box>
+                </HStack>
                 </Box>
             </Flex>
             

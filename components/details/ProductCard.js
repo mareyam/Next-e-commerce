@@ -6,7 +6,7 @@ import {Box} from '@chakra-ui/react'
 
 const ProductCard = () => {
   return (
-    <Box>
+    <Box display={{base:'block', md:'flex'}} margin='3%'>
         <ProductImages/>
         <ProductDetail/>
     </Box>
