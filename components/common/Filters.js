@@ -21,21 +21,33 @@ import {
 import { DragHandleIcon , TriangleDownIcon } from '@chakra-ui/icons'
 
 const Filters = () => {
+  const [toggleHam, setToggleHam] = useState(false)
+
   return (
     <Container bg='gray.100' maxW='100vw' position='sticky' top='0' zIndex='98'>
             <Flex display={{base:'block', md:'flex'}} p={{base:'2', md:'5'}} justifyContent='space-between'>
             <HStack >
+                  
                 <IconButton
                   fontSize={{base:'12px', md:'sm'}}
-                  icon={<Box ><DragHandleIcon /></Box>}
+                  transition= 'all 0.3s ease-out'
+                  onClick={() => setToggleHam(!toggleHam)}
+                  transform={toggleHam ? "rotate(0deg)" : "rotate(90deg)"}
+                  icon={<Image src='/grid.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
                 ></IconButton>  
                  <IconButton
-                  fontSize={{base:'12px', md:'sm'}}
-                  icon={<Box ><DragHandleIcon /></Box>}
+                    fontSize={{base:'12px', md:'sm'}}
+                    transition= 'all 0.5s ease-out'
+                    onClick={() => setToggleHam(!toggleHam)}
+                    transform={toggleHam ? "rotate(0deg)" : "rotate(180deg)"}
+                  icon={<Image src='/layout.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
                 ></IconButton>  
                  <IconButton
-                  fontSize={{base:'12px', md:'sm'}}
-                  icon={<Box ><DragHandleIcon /></Box>}
+                    fontSize={{base:'12px', md:'sm'}}
+                    transition= 'all 0.5s ease-out'
+                    onClick={() => setToggleHam(!toggleHam)}
+                    transform={toggleHam ? "rotate(0deg)" : "rotate(180deg)"}
+                  icon={<Image src='/filter.png' w={{base:'12px', md:'16px'}} h={{base:'12px', md:'16px'}}/>}
                 ></IconButton>   
                 <Text fontSize={{base:'10px', md:'sm'}}>| Showing 1–16 of 32 results </Text>
             </HStack>

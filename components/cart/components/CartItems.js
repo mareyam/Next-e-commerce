@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Center, 
@@ -42,8 +42,15 @@ import NextLink from 'next/link'
 const CartItems = () => {
   const dispatch = useDispatch();
   const { handleRemoveItem, handleEmptyCart } = useCart();
+  
+  const productItems = useSelector((state) => {
+    return state.cart;
+  });
   const totalPrice = useTotalPrice(productItems);
   const totalProducts = useTotalProducts(productItems);
+
+  console.log('price is'+totalPrice);
+  console.log('total prodducts is'+totalProducts);
 
   const handleToCheckout = (product) => {
     console.log("Added Product:", product.title);
@@ -52,15 +59,14 @@ const CartItems = () => {
 
     console.log("value of addProductToCheckout in test" + product.isChecked);
   };
-  const productItems = useSelector((state) => {
-    // console.log(state);
-    return state.cart;
-  });
 
+    useEffect(() => {
+  
+    }, [productItems]);
   return (
     <Container maxW='container.lg'  marginBottom='5'> 
       <Flex justifyContent='space-between' display={{base:'block', md:'flex'}}>      
-          <TableContainer  w={{base:'100%', md:'100%'}} h='400px' overflowY='scroll'>
+          <TableContainer  w={{base:'100%', md:'100%'}} h='400px' overflowY='auto'>
             <Table variant="simple">
               <Thead position='sticky' top='0' zIndex='97' backgroundColor='white'>
                 <Tr>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  useDisclosure,
   Center, 
   Icon, 
   CheckIcon,
@@ -22,10 +23,13 @@ import { useDispatch } from "react-redux";
 import { addCartProduct } from "../../../toolkit/cartSlice";
 
 
+
+
 const ProductsItems = () => {
   const { data } = useProducts();
   const dispatch = useDispatch();
   const [toggleHover, setToggleHover] = useState(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
 
   const handleAddToCart = (product) => {

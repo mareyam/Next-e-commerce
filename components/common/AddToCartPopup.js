@@ -1,20 +1,23 @@
 import React from 'react';
 import {
-  HStack, Stack, VStack, Heading, Text, Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Button, IconButton, Box, Image
+  HStack, Stack, NextLink, Link, VStack, Heading, Text, Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Button, IconButton, Box, Image
 } from '@chakra-ui/react';
 import { useSelector } from "react-redux";
 import useCart from '../../hooks/useCart';
 import { CloseIcon } from '@chakra-ui/icons';
+import useTotalPrice from '../../hooks/useTotalPrice';
 
 const AddToCartPopup = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleRemoveItem, handleEmptyCart } = useCart();
 
+
   const productItems = useSelector((state) => {
-    console.log("state in popup");
-    console.log(state);
+    // console.log("state in popup");
     return state.cart;
   });
+  const totalPrice = useTotalPrice(productItems);
+
 
   return (
     <>
@@ -23,22 +26,34 @@ const AddToCartPopup = () => {
         isRound={true}
         onClick={onOpen}
         backgroundColor="gray.100"
-        icon={<Box>&#128722;</Box>}
+        icon={<Image src={'/shopping-cart.png'} w='20px' h='20px' />}
       ></IconButton>
       <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
-        <DrawerContent>
-          <DrawerHeader borderBottomWidth='1px'>Cart</DrawerHeader>
-          <DrawerBody>
+        <DrawerContent maxH='100vh'>
+          <DrawerHeader borderBottomWidth='1px' >
+            <Box justifyContent='space-between' display='flex' flexDirection='row'>
+              Cart
+              <IconButton
+              w='auto'
+              isRound={true}
+              onClick={onClose}
+              backgroundColor="gray.100"
+              icon={<Image src={'/close-cart.png'} w='20px' h='20px' />}
+            ></IconButton>
+             </Box> 
+            
+              </DrawerHeader>
+          <DrawerBody maxH='75vh'>
             {productItems?.map((item) => (
-              <HStack key={item.id} marginTop='2%' align='flex-start'> 
+              <HStack key={item.id}  marginTop='2%' align='flex-start'> 
                 <Image
                   src={item.image}
                   alt="candles"
                   bg="gray.100"
                   borderRadius='10%'
                   objectFit='cover'
-                  w={{ base: '100px', md: '100px' }}
+                  minW={{ base: '100px', md: '100px' }}
                   h={{ base: '100px', md: '100px' }}
                   
                 />
@@ -58,6 +73,22 @@ const AddToCartPopup = () => {
                 </Stack>
               </HStack>
             ))}
+          </DrawerBody>
+          <hr/>
+          <DrawerBody display="flex"  flexDirection="column" maxH='15vh' justifyContent='space-between'>
+            <HStack justifyContent='space-between'>
+              <Text fontSize='md' fontWeight='bold'>Subtotal</Text>
+              <Text fontSize='md' color='gray.600'>${totalPrice}.00</Text>
+            </HStack>
+            <hr/>
+            <HStack justifyContent='space-between'>
+             <Link as={NextLink} href='/cart'>
+              <Button fontSize='sm' w='100px' h='auto' bg='white' color='black' border='1px solid'>Cart</Button>
+            </Link>
+             <Link as={NextLink} href='/checkout'>
+              <Button fontSize='sm' w='100px' h='auto' bg='white' color='black' border='1px solid'>Checkout</Button>
+            </Link>
+            </HStack>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

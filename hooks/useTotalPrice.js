@@ -4,9 +4,7 @@ const useTotalPrice = (productItems) => {
   const handleTotalCost = useMemo(() => {
     let cost = 0;
         productItems?.forEach((item) => {
-          console.log(item.price);
           cost += item.price;
-          console.log(cost);
         });
     return cost;
   }, [productItems]);
