@@ -21,6 +21,7 @@ import {
 import { useProducts } from "../../../hooks/useProducts";
 import { useDispatch } from "react-redux";
 import { addCartProduct } from "../../../toolkit/cartSlice";
+import useView from "../../../hooks/useView";
 
 
 
@@ -30,7 +31,14 @@ const ProductsItems = ({productsView}) => {
   const dispatch = useDispatch();
   const [toggleHover, setToggleHover] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {GridView, GalleryView } = useView();
+  const gridView = GridView(data);
+  const galleryView = GalleryView(data);
 
+
+
+  console.log("productsView is")
+  console.log(productsView)
 
   const handleAddToCart = (product) => {
     console.log("Selected Product:", product.title);
@@ -48,9 +56,11 @@ const ProductsItems = ({productsView}) => {
 
   return (
 <Container maxW='container.lg' marginBottom='3%'>
-      <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="5">
 
-        {/* {data?.slice(0, itemSplice).map((item) => ( */}
+      {productsView === 'grid' ? gridView : galleryView}
+    
+
+      {/* <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="5">
         {data?.map((item) => (
           <Box
             key={item.id}
@@ -118,7 +128,7 @@ const ProductsItems = ({productsView}) => {
             </Box>
           </Box>
         ))}
-      </SimpleGrid>
+      </SimpleGrid> */}
 
       
 

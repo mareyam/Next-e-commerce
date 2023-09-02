@@ -28,7 +28,7 @@ const Filters = () => {
   
   useEffect(() => {
     <ProductsItems productsView={view}/>
-  })
+  }, [view])
 
   return (
      <Container bg='gray.100' maxW='100vw' position='sticky' top='0' zIndex='98'>
@@ -89,6 +89,7 @@ const Filters = () => {
                 </Box>
                
             </Flex>
+         <ProductsItems productsView={view}/>
            
     </Container>
 
