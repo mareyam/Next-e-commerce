@@ -1,54 +1,69 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {
-    Center, 
-    Icon, 
-    CheckIcon,
     IconButton,
-    Button,
     Container,
-    SimpleGrid,
     Box,
     Image,
     Stack,
-    Heading,
     Text,
-    Divider,
     Flex,
     Select,
-    HStack,
-    
+    HStack, 
   } from "@chakra-ui/react";
-import { DragHandleIcon , TriangleDownIcon } from '@chakra-ui/icons'
+  import { useProducts } from '../../hooks/useProducts';
+  import useView from '../../hooks/useView';
+  import ProductsItems from '../products/components/ProductItems';
 
 const Filters = () => {
-  const [toggleHam, setToggleHam] = useState(false)
+  const { data } = useProducts();
+  const {GridView, GalleryView } = useView();
+  const gridView = GridView(data);
+  const galleryView = GalleryView(data);
+
+  const [view, setView] = useState('grid');
+
+  const handleViewChange = (view) => {
+    setView(view);
+  };
+  
+  useEffect(() => {
+    <ProductsItems productsView={view}/>
+  })
 
   return (
-    <Container bg='gray.100' maxW='100vw' position='sticky' top='0' zIndex='98'>
+     <Container bg='gray.100' maxW='100vw' position='sticky' top='0' zIndex='98'>
             <Flex display={{base:'block', md:'flex'}} p={{base:'2', md:'5'}} justifyContent='space-between'>
             <HStack >
-                  
+                <Box role='group'> 
                 <IconButton
                   fontSize={{base:'12px', md:'sm'}}
                   transition= 'all 0.3s ease-out'
-                  onClick={() => setToggleHam(!toggleHam)}
-                  transform={toggleHam ? "rotate(0deg)" : "rotate(90deg)"}
+                  transform='rotate(0deg)'
+                  _groupHover={{transform: 'rotate(90deg)'}}
+                  onClick={() =>handleViewChange('grid')}
                   icon={<Image src='/grid.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
-                ></IconButton>  
-                 <IconButton
-                    fontSize={{base:'12px', md:'sm'}}
-                    transition= 'all 0.5s ease-out'
-                    onClick={() => setToggleHam(!toggleHam)}
-                    transform={toggleHam ? "rotate(0deg)" : "rotate(180deg)"}
+                ></IconButton></Box> 
+
+
+              <Box role='group'> 
+                <IconButton
+                  fontSize={{base:'12px', md:'sm'}}
+                  transition= 'all 0.5s ease-out'
+                  transform='rotate(0deg)'
+                  _groupHover={{transform: 'rotate(180deg)'}}
+                  onClick={() => handleViewChange('gallery')}
                   icon={<Image src='/layout.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
-                ></IconButton>  
+                ></IconButton></Box> 
+
+              <Box role='group'> 
                  <IconButton
-                    fontSize={{base:'12px', md:'sm'}}
-                    transition= 'all 0.5s ease-out'
-                    onClick={() => setToggleHam(!toggleHam)}
-                    transform={toggleHam ? "rotate(0deg)" : "rotate(180deg)"}
-                  icon={<Image src='/filter.png' w={{base:'12px', md:'16px'}} h={{base:'12px', md:'16px'}}/>}
-                ></IconButton>   
+                  fontSize={{base:'12px', md:'sm'}}
+                  transition= 'all 0.5s ease-out'
+                  transform='rotate(0deg)'
+                  _groupHover={{transform: 'rotate(180deg)'}}
+                  icon={<Image src='/filter.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
+                ></IconButton></Box>
+               
                 <Text fontSize={{base:'10px', md:'sm'}}>| Showing 1–16 of 32 results </Text>
             </HStack>
           

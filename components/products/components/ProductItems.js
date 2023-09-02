@@ -25,7 +25,7 @@ import { addCartProduct } from "../../../toolkit/cartSlice";
 
 
 
-const ProductsItems = () => {
+const ProductsItems = ({productsView}) => {
   const { data } = useProducts();
   const dispatch = useDispatch();
   const [toggleHover, setToggleHover] = useState(null);
