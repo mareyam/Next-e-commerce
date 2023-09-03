@@ -4,6 +4,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import cartSlice from "./cartSlice";
 import checkoutSlice from "./checkoutSlice";
+import sortingSlice from "./sortingSlice";
+
 
 const persistConfig = {
   key: "root",
@@ -14,6 +16,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   cart: cartSlice,
   checkout: checkoutSlice,
+  sort: sortingSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

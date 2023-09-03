@@ -13,22 +13,37 @@ import {
   import { useProducts } from '../../hooks/useProducts';
   import useView from '../../hooks/useView';
   import ProductsItems from '../products/components/ProductItems';
+  import { useDispatch } from "react-redux";
+  import { sortByAscending, sortByDescending }  from '../../toolkit/cartSlice';
 
 const Filters = () => {
   const { data } = useProducts();
+  const dispatch = useDispatch();
+
   const {GridView, GalleryView } = useView();
   const gridView = GridView(data);
   const galleryView = GalleryView(data);
-
   const [view, setView] = useState('grid');
 
   const handleViewChange = (view) => {
     setView(view);
   };
+
+  const handleSortingChange = (event) => {
+    const selectedOption = event.target.value;
+
+    if (selectedOption === 'lowToHigh') {
+      dispatch(sortByAscending());
+      console.log("ascending")
+    } else if (selectedOption === 'highToLow') {
+      dispatch(sortByDescending());
+      console.log("descending")
+    }
+  };
   
-  useEffect(() => {
-    <ProductsItems productsView={view}/>
-  }, [view])
+  // useEffect(() => {
+  //   <ProductsItems productsView={view}/>
+  // }, [view])
 
   return (
      <Container bg='gray.100' maxW='100vw' position='sticky' top='0' zIndex='98'>
@@ -55,16 +70,16 @@ const Filters = () => {
                   icon={<Image src='/layout.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
                 ></IconButton></Box> 
 
-              <Box role='group'> 
+              {/* <Box role='group'> 
                  <IconButton
                   fontSize={{base:'12px', md:'sm'}}
                   transition= 'all 0.5s ease-out'
                   transform='rotate(0deg)'
                   _groupHover={{transform: 'rotate(180deg)'}}
                   icon={<Image src='/filter.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
-                ></IconButton></Box>
+                ></IconButton></Box> */}
                
-                <Text fontSize={{base:'10px', md:'sm'}}>| Showing 1–16 of 32 results </Text>
+                {/* <Text fontSize={{base:'10px', md:'sm'}}>| Showing 1–16 of 32 results </Text> */}
             </HStack>
           
                 <Box>
@@ -78,10 +93,10 @@ const Filters = () => {
                     </Stack>
                     <Text fontSize={{base:'12px', md:'sm'}}>Sort by</Text>
                     <Stack spacing={3} size={{base:'12px',md:'sm'}}>
-                      <Select placeholder='Featured' size='sm'>
-                        <option>Price Low to High</option>  
-                        <option>Price High to Low</option>  
-                      </Select> 
+                    <Select onChange={handleSortingChange}>
+                      <option value="lowToHigh">Price Low to High</option>
+                      <option value="highToLow">Price High to Low</option>
+                    </Select>
                     </Stack>
                    
                     
@@ -97,3 +112,12 @@ const Filters = () => {
 }
 
 export default Filters
+
+
+const PriceFilter = () => {
+  return (
+    <Box>
+
+    </Box>
+  )
+}

@@ -27,6 +27,12 @@ export const cartSlice = createSlice({
       console.log("Items to checkout:", itemsToCheckout);
       return itemsToCheckout;
     },
+    sortByAscending: (state) => {
+      state.products.sort((a, b) => a.price - b.price);
+    },
+    sortByDescending: (state) => {
+      state.products.sort((a, b) => b.price - a.price);
+    },
   },
 });
 
@@ -36,6 +42,8 @@ export const {
   clearCart,
   addProductToCheckout,
   checkout,
+  sortByAscending, 
+  sortByDescending
 } = cartSlice.actions;
 export default cartSlice.reducer;
 

@@ -20,22 +20,15 @@ import {
     Flex,
   } from "@chakra-ui/react";
 import { useProducts } from './useProducts';
-import { useDispatch } from "react-redux";
-import { addCartProduct } from "../toolkit/cartSlice";
 
 
 const useView = () => {
     const { data } = useProducts();
-    const dispatch = useDispatch();
-    const [view, setView] = useState('grid');
- 
-    const handleAddToCart = (product) => {
-        console.log("Selected Product:", product.title);
-        dispatch(addCartProduct(product));
-      };  
+
+    const [filter, setFilter] = useState('lowtohigh');
     
 
-    const GridView = (data) =>{
+    const LowToHigh = (data) =>{
         const [toggleHover, setToggleHover] = useState(null);
         const handleAddToCart = (product) => {
             console.log("Selected Product:", product.title);

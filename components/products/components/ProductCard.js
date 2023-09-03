@@ -29,7 +29,7 @@ const { isOpen, onToggle } = useDisclosure()
   return (
     <Box >
      <Header/>
-     <ProductItems/>
+     {/* <ProductItems/> */}
     </Box>
   );
 };
