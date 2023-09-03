@@ -37,8 +37,8 @@ const ProductsItems = ({productsView}) => {
 
 
 
-  console.log("productsView is")
-  console.log(productsView)
+  // console.log("productsView is")
+  // console.log(productsView)
 
   const handleAddToCart = (product) => {
     console.log("Selected Product:", product.title);
@@ -59,6 +59,11 @@ const ProductsItems = ({productsView}) => {
 
       {productsView === 'grid' ? gridView : galleryView}
     
+      </Container>
+  );
+};
+
+export default ProductsItems;
 
       {/* <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="5">
         {data?.map((item) => (
@@ -133,11 +138,7 @@ const ProductsItems = ({productsView}) => {
       
 
 
-    </Container>
-  );
-};
 
-export default ProductsItems;
 
 
 // setSelectedProduct((prevProducts) => [...prevProducts, product]);

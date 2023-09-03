@@ -24,22 +24,33 @@ const Filters = () => {
   const gridView = GridView(data);
   const galleryView = GalleryView(data);
   const [view, setView] = useState('grid');
+  const [sort, setSort] = useState('low');
+  
+  
 
   const handleViewChange = (view) => {
     setView(view);
   };
 
-  const handleSortingChange = (event) => {
-    const selectedOption = event.target.value;
-
-    if (selectedOption === 'lowToHigh') {
-      dispatch(sortByAscending());
-      console.log("ascending")
-    } else if (selectedOption === 'highToLow') {
-      dispatch(sortByDescending());
-      console.log("descending")
-    }
+  const handleSortChange = (event) => {
+    console.log("event is"+event.target.value)
+    const selectedSort = event.target.value;
+    setSort(selectedSort);
   };
+
+  console.log("sort iss"+sort.target.value)
+
+  // const handleSortingChange = (event) => {
+  //   const selectedOption = event.target.value;
+
+  //   if (selectedOption === 'lowToHigh') {
+  //     dispatch(sortByAscending());
+  //     console.log("ascending")
+  //   } else if (selectedOption === 'highToLow') {
+  //     dispatch(sortByDescending());
+  //     console.log("descending")
+  //   }
+  // };
   
   // useEffect(() => {
   //   <ProductsItems productsView={view}/>
@@ -93,13 +104,11 @@ const Filters = () => {
                     </Stack>
                     <Text fontSize={{base:'12px', md:'sm'}}>Sort by</Text>
                     <Stack spacing={3} size={{base:'12px',md:'sm'}}>
-                    <Select onChange={handleSortingChange}>
-                      <option value="lowToHigh">Price Low to High</option>
-                      <option value="highToLow">Price High to Low</option>
+                    <Select value={sort} onChange={handleSortChange}>
+                      <option value="low">Price Low to High</option>
+                      <option value="high">Price High to Low</option>
                     </Select>
                     </Stack>
-                   
-                    
                 </HStack>
                 </Box>
                
