@@ -26,7 +26,7 @@ import useView from "../../../hooks/useView";
 
 
 
-const ProductsItems = ({productsView}) => {
+const ProductsItems = ({productsView, sort}) => {
   const { data } = useProducts();
   const dispatch = useDispatch();
   const [toggleHover, setToggleHover] = useState(null);
@@ -34,28 +34,11 @@ const ProductsItems = ({productsView}) => {
   const {GridView, GalleryView } = useView();
   const gridView = GridView(data);
   const galleryView = GalleryView(data);
-
-
-
-  // console.log("productsView is")
-  // console.log(productsView)
-
-  const handleAddToCart = (product) => {
-    console.log("Selected Product:", product.title);
-    dispatch(addCartProduct(product));
-  };  
-  const handleMouseEnter = (id) => {
-    setToggleHover(id);
-  };
-
-  const handleMouseLeave = () => {
-    setToggleHover(null);
-  };
-
-
-
+  // const gridView = GridView({data, sort});
+  // const galleryView = GalleryView({data, sort});
+  console.log("sort is"+sort);
   return (
-<Container maxW='container.lg' marginBottom='3%'>
+    <Container maxW='container.lg' marginBottom='3%'>
 
       {productsView === 'grid' ? gridView : galleryView}
     
@@ -64,6 +47,20 @@ const ProductsItems = ({productsView}) => {
 };
 
 export default ProductsItems;
+
+// const handleAddToCart = (product) => {
+//   console.log("Selected Product:", product.title);
+//   dispatch(addCartProduct(product));
+// };  
+// const handleMouseEnter = (id) => {
+//   setToggleHover(id);
+// };
+
+// const handleMouseLeave = () => {
+//   setToggleHover(null);
+// };
+
+
 
       {/* <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="5">
         {data?.map((item) => (

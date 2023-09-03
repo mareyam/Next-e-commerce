@@ -33,12 +33,13 @@ const Filters = () => {
   };
 
   const handleSortChange = (event) => {
-    console.log("event is"+event.target.value)
-    const selectedSort = event.target.value;
-    setSort(selectedSort);
+    setSort(event.target.value);
   };
 
-  console.log("sort iss"+sort.target.value)
+  useEffect(() => {
+    console.log("selected is " + sort);
+  }, [sort]);
+
 
   // const handleSortingChange = (event) => {
   //   const selectedOption = event.target.value;
@@ -105,15 +106,16 @@ const Filters = () => {
                     <Text fontSize={{base:'12px', md:'sm'}}>Sort by</Text>
                     <Stack spacing={3} size={{base:'12px',md:'sm'}}>
                     <Select value={sort} onChange={handleSortChange}>
-                      <option value="low">Price Low to High</option>
-                      <option value="high">Price High to Low</option>
+                      <option value='low'>Price Low to High</option>
+                      <option value='high'>Price High to Low</option>
                     </Select>
+
                     </Stack>
                 </HStack>
                 </Box>
                
             </Flex>
-         <ProductsItems productsView={view}/>
+         <ProductsItems productsView={view} sort={sort}/>
            
     </Container>
 

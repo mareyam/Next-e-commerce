@@ -27,7 +27,10 @@ import { addCartProduct } from "../toolkit/cartSlice";
 const useView = () => {
     const { data } = useProducts();
     const dispatch = useDispatch();
-   
+    // {data, sort}
+    // const sortedItems = () => {
+    //   call dispatch from sortingSlice
+    // }
 
     const GridView = (data) =>{
         const [toggleHover, setToggleHover] = useState(null);
