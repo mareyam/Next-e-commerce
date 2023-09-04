@@ -14,20 +14,16 @@ import {
   import useView from '../../hooks/useView';
   import ProductsItems from '../products/components/ProductItems';
   import { useDispatch } from "react-redux";
-  import { sortByAscending, sortByDescending }  from '../../toolkit/cartSlice';
 
 const Filters = () => {
   const { data } = useProducts();
   const dispatch = useDispatch();
 
   const {GridView, GalleryView } = useView();
-  const gridView = GridView(data);
-  const galleryView = GalleryView(data);
   const [view, setView] = useState('grid');
   const [sort, setSort] = useState('low');
+  const [count, setCount] = useState('4');
   
-  
-
   const handleViewChange = (view) => {
     setView(view);
   };
@@ -36,22 +32,14 @@ const Filters = () => {
     setSort(event.target.value);
   };
 
+  const handleCountChange = (event) => {
+    setCount(event.target.value);
+  };
+
   useEffect(() => {
-    console.log("selected is " + sort);
   }, [sort]);
 
 
-  // const handleSortingChange = (event) => {
-  //   const selectedOption = event.target.value;
-
-  //   if (selectedOption === 'lowToHigh') {
-  //     dispatch(sortByAscending());
-  //     console.log("ascending")
-  //   } else if (selectedOption === 'highToLow') {
-  //     dispatch(sortByDescending());
-  //     console.log("descending")
-  //   }
-  // };
   
   // useEffect(() => {
   //   <ProductsItems productsView={view}/>
@@ -98,9 +86,10 @@ const Filters = () => {
                 <HStack textAlign='center' display='flex' gap='3'>
                     <Text size={{base:'12px', md:'sm'}}>Show</Text>
                     <Stack spacing={3} fontSize={{base:'12px', md:'sm'}}>
-                      <Select placeholder='8' size='sm'>
-                        <option>16</option>  
-                        <option>All</option>  
+                      <Select value={count} onChange={handleCountChange} placeholder='select' size='sm'>
+                        <option value='4'>4</option>  
+                        <option value='8'>8</option>  
+                        <option  value='all'>All</option>  
                       </Select> 
                     </Stack>
                     <Text fontSize={{base:'12px', md:'sm'}}>Sort by</Text>
@@ -113,9 +102,8 @@ const Filters = () => {
                     </Stack>
                 </HStack>
                 </Box>
-               
             </Flex>
-         <ProductsItems productsView={view} sort={sort}/>
+         <ProductsItems productsView={view} sort={sort} count={count}/>
            
     </Container>
 

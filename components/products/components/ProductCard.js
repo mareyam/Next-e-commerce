@@ -1,31 +1,12 @@
 import React, { useState } from "react";
 import {
-  Center, 
-  Icon, 
-  CheckIcon,
-  IconButton,
-  Button,
-  Container,
-  SimpleGrid,
-  Box,
-  Image,
-  Stack,
-  Heading,
-  Text,
-  Divider,
-  Flex,
-  useDisclosure,
-  ScaleFade 
+  Box
 } from "@chakra-ui/react";
 import ProductItems from './ProductItems';
 import Header from "./Header";
 
 
 const ProductCard = () => {
-const { isOpen, onToggle } = useDisclosure()
-
-
-
   return (
     <Box >
      <Header/>

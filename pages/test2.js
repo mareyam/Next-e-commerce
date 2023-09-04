@@ -8,7 +8,7 @@ function Test2() {
   };
 
   useEffect(() => {
-    console.log("selected is " + selectedOption);
+    // console.log("selected is " + selectedOption);
   }, [selectedOption]);
 
   return (

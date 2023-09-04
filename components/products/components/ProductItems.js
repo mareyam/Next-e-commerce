@@ -1,46 +1,20 @@
 import React, { useState } from "react";
 import {
-  useDisclosure,
-  Center, 
-  Icon, 
-  CheckIcon,
-  IconButton,
-  Button,
-  Container,
-  SimpleGrid,
-  ScaleFade,
-  Box,
-  Image,
-  Stack,
-  Heading,
-  Text,
-  Divider,
-  Flex,
-   
+  Container,  
 } from "@chakra-ui/react";
 import { useProducts } from "../../../hooks/useProducts";
 import { useDispatch } from "react-redux";
-import { addCartProduct } from "../../../toolkit/cartSlice";
-import useView from "../../../hooks/useView";
+import GridView from '../../GridView.js';
+import GalleryView from '../../GalleryView.js';
 
 
+const ProductsItems = ({productsView, sort, count}) => {
+  console.log("sort in ProductItems is"+sort);
 
-
-const ProductsItems = ({productsView, sort}) => {
-  const { data } = useProducts();
-  const dispatch = useDispatch();
-  const [toggleHover, setToggleHover] = useState(null);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const {GridView, GalleryView } = useView();
-  const gridView = GridView(data);
-  const galleryView = GalleryView(data);
-  // const gridView = GridView({data, sort});
-  // const galleryView = GalleryView({data, sort});
-  console.log("sort is"+sort);
   return (
     <Container maxW='container.lg' marginBottom='3%'>
 
-      {productsView === 'grid' ? gridView : galleryView}
+      {productsView === 'gallery' ? <GalleryView sort={sort} count={count}/> : <GridView sort={sort} count={count}/> }
     
       </Container>
   );

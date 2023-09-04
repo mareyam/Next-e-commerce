@@ -18,16 +18,16 @@ import {
 } from "@chakra-ui/react";
 import Quantity from '../common/Quantity'
 
-const ProductDetail = () => {
+const ProductDetail = ({id, image, title,details, isChecked, price }) => {
   const [sizeToggle, setSizeToggle] = useState(false);
   const handleSizeToggle = () => {
     setSizeToggle(!sizeToggle)
   }
   return (
     <Box w={{base:'100%', md:'50%'}} padding='5'>
-      <Heading fontWeight='medium'>Asgaard sofa</Heading>
-      <Text fontSize={{base:'md', md:'xl'}} color='gray' >$ 250.00</Text>
-      <Text fontSize={{base:'sm', md:'md'}}>Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.</Text>
+      <Heading fontWeight='medium'>{title}</Heading>
+      <Text fontSize={{base:'md', md:'xl'}} color='gray' >{price}</Text>
+      <Text fontSize={{base:'sm', md:'md'}}>{details}</Text>
       <Text marginTop='3' color='gray'>Size</Text>
       <HStack>
         <Button onClick={handleSizeToggle} w='auto' backgroundColor={sizeToggle? 'black':'white'} color={sizeToggle? 'white':'black'} border='1px solid'>S</Button>
@@ -60,8 +60,8 @@ const ProductDetail = () => {
       </HStack>
       <HStack marginTop='3'>
       <Box w='150px'><Quantity/></Box>
-      <Button backgroundColor='white' border='1px solid'>ATC</Button>
-      <Button backgroundColor='white' border='1px solid'>Compare</Button>
+      <Button backgroundColor='white' border='1px solid'>Add To Cart</Button>
+      {/* <Button backgroundColor='white' border='1px solid'>Compare</Button> */}
       </HStack>
     </Box>
   )
