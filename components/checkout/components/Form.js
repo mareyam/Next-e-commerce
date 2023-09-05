@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import {
   Button,
   Container,
@@ -13,8 +13,9 @@ import {
   Divider,
   Flex,
 } from "@chakra-ui/react";
-import CustomField from "./CustomField";
 import { useForm } from "react-hook-form";
+import CustomField from "./CustomField";
+import FormValidation from "components/validation/FormValidation";
 
 const Form = () => {
   const {
@@ -22,18 +23,24 @@ const Form = () => {
     register,
     formState: { errors, isSubmitting },
   } = useForm();
+  const [formValues, setFormValues] = useState({});
+ const handleInput = (data) => {
+    setFormValues(data);
+  };
+  useEffect(() => {});
+
   return (
     <Container>
       <Stack spacing={5}>
       <Box textAlign="left" justifyContent="space-between">
         <Heading fontSize="25px">Billing Details</Heading>
       </Box>
-      <Stack spacing={2}>
+      <Stack as="form" spacing={2} onSubmit={handleSubmit(handleInput)}>
       <Flex display={{base:'block', md:'flex'}} gap='5'>
         <CustomField
           type="text"
           id="FirstName"
-          name="First Name"
+          name="FirstName"
           w="100%"
           placeholder="Maryam"
           required="this is required"
@@ -46,7 +53,7 @@ const Form = () => {
         <CustomField
           type="text"
           id="LastName"
-          name="Last Name"
+          name="LastName"
           w="100%"
           placeholder="Naveed"
           required="this is required"
@@ -70,14 +77,14 @@ const Form = () => {
           errors={errors}
           register={register}
         ></CustomField>
-        <CustomField
+        {/* <CustomField
           type="text"
           id="ShippingNote"
           name="ShippingNote"
           w="100%"
           placeholder="Shipping note (optional)"
           register={register}
-        ></CustomField>
+        ></CustomField> */}
         <Flex  display={{base:'block', md:'flex'}} gap='5'>
           <CustomField
             type="text"
@@ -94,8 +101,8 @@ const Form = () => {
           ></CustomField>
           <CustomField
             type="number"
-            id="Postal Code"
-            name="Postal Code"
+            id="PostalCode"
+            name="PostalCode"
             w="100%"
             placeholder="54400"
             required="this is required"
@@ -119,6 +126,7 @@ const Form = () => {
         </Button>
       </Stack>
       </Stack>   
+      <FormValidation data={formValues} />
      </Container>
   );
 };

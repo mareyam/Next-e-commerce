@@ -21,6 +21,7 @@ export default function CustomField({
   errors,
   register,
 }) {
+
   return (
     <FormControl>
       <FormLabel
@@ -37,20 +38,20 @@ export default function CustomField({
         id={id}
         type={type}
         placeholder={placeholder}
-        // {...register(id, {
-        //   required: required,
-        //   minLength: { value: parseInt(minLength), message: `${message}` },
-        //   maxLength: { value: parseInt(maxLength), message: `${message}` },
-        // })}
-        // border={errors[id] ? "2px solid" : "1px solid gray"}
-        // borderColor={errors[id] ? "red.500" : "gray.300"}
+        {...register(id, {
+          required: required,
+          minLength: { value: parseInt(minLength), message: `${message}` },
+          maxLength: { value: parseInt(maxLength), message: `${message}` },
+        })}
+        border={errors[id] ? "2px solid" : "1px solid gray"}
+        borderColor={errors[id] ? "red.500" : "gray.300"}
       />
-      {/* {errors[id] && (
+      {errors[id] && (
         <Box color="red.500" fontSize="10px">
           <p>{message}</p>
         </Box>
-      )} */}
-      {/* <FormErrorMessage>{errors.id && errors?.message}</FormErrorMessage> */}
+      )}
+      <FormErrorMessage>{errors.id && errors?.message}</FormErrorMessage>
     </FormControl>
   );
 }
