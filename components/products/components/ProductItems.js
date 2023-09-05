@@ -8,13 +8,14 @@ import GridView from '../../GridView.js';
 import GalleryView from '../../GalleryView.js';
 
 
-const ProductsItems = ({productsView, sort, count}) => {
-  console.log("sort in ProductItems is"+sort);
+const ProductsItems = ({view, sort, count}) => {
+  console.log("product items  "+view+sort+count);
 
   return (
     <Container maxW='container.lg' marginBottom='3%'>
+      {/* <GalleryView sort={sort} count={count}/> */}
 
-      {productsView === 'gallery' ? <GalleryView sort={sort} count={count}/> : <GridView sort={sort} count={count}/> }
+      {view === 'gallery' ? <GalleryView sort={sort} count={count}/> : <GridView sort={sort} count={count}/> }
     
       </Container>
   );

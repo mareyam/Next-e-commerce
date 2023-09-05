@@ -4,12 +4,15 @@ import {
 } from "@chakra-ui/react";
 import ProductItems from './ProductItems';
 import Header from "./Header";
+import Filters from '../../common/Filters'
+
 
 
 const ProductCard = () => {
   return (
     <Box >
      <Header/>
+     {/* <Filters/> */}
      {/* <ProductItems/> */}
     </Box>
   );

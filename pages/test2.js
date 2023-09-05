@@ -1,3 +1,4 @@
+import Filters from 'components/common/Filters';
 import React, { useState, useEffect } from 'react';
 
 function Test2() {
@@ -13,12 +14,13 @@ function Test2() {
 
   return (
     <div>
-      <h1>Dropdown Example</h1>
+      <Filters/>
+      {/* <h1>Dropdown Example</h1>
       <select value={selectedOption} onChange={handleDropdownChange}>
         <option value="low">Low</option>
         <option value="high">High</option>
       </select>
-      <p>Selected option: {selectedOption}</p>
+      <p>Selected option: {selectedOption}</p> */}
     </div>
   );
 }

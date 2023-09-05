@@ -16,10 +16,7 @@ import {
   import { useDispatch } from "react-redux";
 
 const Filters = () => {
-  const { data } = useProducts();
-  const dispatch = useDispatch();
 
-  const {GridView, GalleryView } = useView();
   const [view, setView] = useState('grid');
   const [sort, setSort] = useState('low');
   const [count, setCount] = useState('4');
@@ -103,7 +100,9 @@ const Filters = () => {
                 </HStack>
                 </Box>
             </Flex>
-         <ProductsItems productsView={view} sort={sort} count={count}/>
+            <p>{sort} {view} {count}</p> 
+            
+         <ProductsItems view={view} sort={sort} count={count}/>
            
     </Container>
 

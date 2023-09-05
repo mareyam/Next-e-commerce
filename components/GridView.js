@@ -32,7 +32,7 @@ const GridView = ({sort, count}) =>{
   console.log("Count in GridView is"+count)
   
   
-  let sortedItems = data;
+  let sortedItems = data ?? [];
 
   if (sort === 'low') {
     sortedItems.sort((a, b) => a.price - b.price); 

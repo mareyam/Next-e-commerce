@@ -26,13 +26,21 @@ import { useProducts } from "../hooks/useProducts";
 const GalleryView = ({sort, count}) =>{
 
     const { data } = useProducts();
-  
-    console.log("Data in GalleryView is"+data.price)
-    console.log("Sort in GalleryView is"+sort)
-    console.log("Count in GalleryView is"+count)
+    if(data) {
+      console.log("data is present")
+    } else 
+    console.log("not data")
     
+
+
+    // console.log("Sort in GalleryView is"+sort)
+    // console.log("Count in GalleryView is"+count)
     
-    let sortedItems = data;
+
+
+
+    const sortedItems = data ?? [];
+    console.log("sorted items in GalleryView are"+sortedItems)
   
     if (sort === 'low') {
       sortedItems.sort((a, b) => a.price - b.price); 
