@@ -144,11 +144,15 @@ const CartItems = () => {
             <Box className={styles.checkout}>
             <Text className={styles.amount}>Total Amount: <span>${totalPrice}</span></Text>
             <Text className={styles.product_count}>Total Products: <span>{totalProducts}</span></Text>
-            <Link as={NextLink} href='/checkout'>
-              <Button className={styles.checkout_button}>Checkout </Button>
-            </Link>
 
-            </Box>
+            {totalProducts === 0 ? (
+              <Text fontWeight='bold'>No products to checkout</Text>
+            ) : (
+              <Link as={NextLink} href='/checkout'>
+                <Button className={styles.checkout_button}>Checkout</Button>
+              </Link>
+            )}
+              </Box>
             </Box>
         </Flex>   
       </Container>  

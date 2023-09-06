@@ -3,8 +3,12 @@ import { Input } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import ThankyouCard from "components/thankyou/components/ThankyouCard";
 import CheckoutCard from '../checkout/components/CheckoutCard';
+import { useRouter } from 'next/router';
+
+
 
 export default function FormValidation({ data }) {
+  const router = useRouter();
   console.log("data is");
   console.log(data);
   
@@ -66,6 +70,9 @@ export default function FormValidation({ data }) {
     // console.log(isValidated);
   }, [formValues]);
 
+  if(isValidated) {
+    router.push('/thankyou');
+  }
   return (
     <>
     {console.log(isValidated)}

@@ -17,13 +17,28 @@ import {
 } from "@chakra-ui/react";
 import CheckoutProducts from './CheckoutProducts';
 import Header from "./Header";
+import { useSelector } from "react-redux";
+import useTotalProducts from "../../../hooks/useTotalProducts";
+
 
 
 const CheckoutCard = () => {
+  const productItems = useSelector((state) => {
+    return state.cart;
+  });
+  const totalProducts = useTotalProducts(productItems);
   return (
     <Box >
-     <Header/>
-     <CheckoutProducts/>
+      {totalProducts === 0 ? (
+              <Box w='100%' h='166px' textAlign='center' justifyContent='center' display='flex' flexDirection='column'>
+                <Text fontWeight='bold' fontSize='30px'>No products to checkout</Text>
+              </Box>
+            ) : (
+              <div>
+                <Header/>
+                <CheckoutProducts/>
+              </div>
+            )}     
     </Box>
   );
 };

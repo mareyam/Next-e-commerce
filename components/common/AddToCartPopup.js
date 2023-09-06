@@ -7,6 +7,7 @@ import useCart from '../../hooks/useCart';
 import { CloseIcon } from '@chakra-ui/icons';
 import useTotalPrice from '../../hooks/useTotalPrice';
 
+
 const AddToCartPopup = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleRemoveItem, handleEmptyCart } = useCart();
@@ -85,9 +86,16 @@ const AddToCartPopup = () => {
              <Link as={NextLink} href='/cart'>
               <Button fontSize='sm' w='100px' h='auto' bg='white' color='black' border='1px solid'>Cart</Button>
             </Link>
-             <Link as={NextLink} href='/checkout'>
-              <Button fontSize='sm' w='100px' h='auto' bg='white' color='black' border='1px solid'>Checkout</Button>
-            </Link>
+
+            {totalPrice === 0 ? (
+              <Button fontSize='sm' w='100px' h='auto' bg='gray' color='white' border='1px solid'>Checkout</Button>
+            ) : (
+              <div>
+              <Link as={NextLink} href='/checkout'>
+                 <Button fontSize='sm' w='100px' h='auto' bg='white' color='black' border='1px solid'>Checkout</Button>
+              </Link>
+              </div>
+            )}     
             </HStack>
           </DrawerBody>
         </DrawerContent>

@@ -1,9 +1,12 @@
 import { Center, Stack, Box, Button, Heading, VStack } from "@chakra-ui/react";
 import React from "react";
 import styles from '../../../styles/Home.module.css'
+import { useRouter } from 'next/router';
 
 
-export default function CenterCard() {
+  export default function CenterCard() {
+  const router = useRouter();
+
   const handleMouseEnter = (id) => {
     setToggleHover(id);
   };
@@ -12,6 +15,9 @@ export default function CenterCard() {
     setToggleHover(null);
   };
 
+  const handleRoute = () => {
+    router.push('/products')
+  }
   return (
     <Center h="100%">
       <VStack
@@ -36,7 +42,8 @@ export default function CenterCard() {
             All handmade with natural soy wax, Candleaf is a companion for all
             your pleasure moments
           </p>
-          <button className={styles.centerCard_button}>
+            
+          <button className={styles.centerCard_button} onClick={handleRoute}>
             BUY NOW
         </button>
 
