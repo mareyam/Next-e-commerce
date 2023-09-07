@@ -1,6 +1,23 @@
 # Next Ecommerce
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/9dc07fd0-226b-44f9-97d0-a149a3b2077b)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/2e970aff-9dec-4225-b5e7-f26dbd5a6b7f)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/a3cc3990-1fc2-4c18-bd3d-3a93c94770c2)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/946272c7-1c2f-438e-91cb-72d5c509acd6)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/42f75c10-5a3b-472e-9ef5-78b85e2087aa)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/15b6d966-0619-4052-ac99-3a53e3184943)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/4a553afa-e1f3-403b-91c4-dd3a929b26da)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/5b39777b-81ae-483e-b10c-d581f43231a7)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/562891a6-7347-49af-9596-f750df35908b)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/738d059b-f218-4f83-917e-d9124628f77a)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/f6bd1bd4-6917-4a87-b014-5cf3e856cb40)
+![image](https://github.com/mareyam/Next-e-commerce/assets/63284481/a815318a-99d3-4ecb-94f2-af1c997e230d)
+
+
+
+
+
 ## Getting Started
 
 First, run the development server:
