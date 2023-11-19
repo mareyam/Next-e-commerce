@@ -1,32 +1,37 @@
 import React, { useState } from "react";
-import {
-  Container,  
-} from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import { useProducts } from "../../../hooks/useProducts";
 import { useDispatch } from "react-redux";
-import GridView from '../../GridView.js';
-import GalleryView from '../../GalleryView.js';
+import GridView from "../../GridView.js";
+import GalleryView from "../../GalleryView.js";
 
-
-const ProductsItems = ({view, sort, count}) => {
-  console.log("product items  "+view+sort+count);
+const ProductsItems = ({ view, sort, count }) => {
+  console.log("product items  " + view + sort + count);
 
   return (
-    <Container maxW='container.lg' marginBottom='3%'>
-      {/* <GalleryView sort={sort} count={count}/> */}
-
-      {view === 'gallery' ? <GalleryView sort={sort} count={count}/> : <GridView sort={sort} count={count}/> }
-    
-      </Container>
+    <>
+      {view === "gallery" ? (
+        <GalleryView sort={sort} count={count} />
+      ) : (
+        <GridView sort={sort} count={count} />
+      )}
+    </>
   );
 };
 
 export default ProductsItems;
 
+{
+  /* <GalleryView sort={sort} count={count}/> */
+}
+
+// <Container maxW='container.lg' marginBottom='3%'>
+//   </Container>
+
 // const handleAddToCart = (product) => {
 //   console.log("Selected Product:", product.title);
 //   dispatch(addCartProduct(product));
-// };  
+// };
 // const handleMouseEnter = (id) => {
 //   setToggleHover(id);
 // };
@@ -35,9 +40,8 @@ export default ProductsItems;
 //   setToggleHover(null);
 // };
 
-
-
-      {/* <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="5">
+{
+  /* <SimpleGrid my='2' columns={{ base: 1, md: 4 }} spacing="5">
         {data?.map((item) => (
           <Box
             key={item.id}
@@ -105,13 +109,8 @@ export default ProductsItems;
             </Box>
           </Box>
         ))}
-      </SimpleGrid> */}
-
-      
-
-
-
-
+      </SimpleGrid> */
+}
 
 // setSelectedProduct((prevProducts) => [...prevProducts, product]);
 {
