@@ -28,24 +28,42 @@ const index = () => {
       {isDesktop ? (
         <VStack align="left">
           {CATEGORIES.map((category, index) => (
-            <>
-              <Box
-                key={index}
-                py="1"
-                borderRadius="4"
-                px="2"
-                cursor="pointer"
-                bg={selectCategory == index ? "#E5F1FF" : "white"}
-                _hover={{
-                  fontWeight: "700",
-                }}
-                onMouseEnter={() => handleSelectCategory(index)}
-                onMouseLeave={() => setSelectCategory(null)}
-                display="flex"
-              >
-                <Text>{category.name}</Text>
-              </Box>
-            </>
+            <Box
+              mr="2"
+              key={index}
+              py="1"
+              borderRadius="4"
+              px="2"
+              cursor="pointer"
+              bg={selectCategory == index ? "#E5F1FF" : "white"}
+              fontWeight={selectCategory == index ? "700" : "400"}
+              onMouseEnter={() => handleSelectCategory(index)}
+              onMouseLeave={() => setSelectCategory(null)}
+              display="flex"
+            >
+              <Text w="full">{category.name}</Text>
+
+              {selectCategory === index && (
+                <Box top="5" pos="absolute" left="48" bg="white" h="96">
+                  {category.subcategories.map((subcategory, index) => (
+                    <Box
+                      key={index}
+                      py="2"
+                      borderRadius="4"
+                      px="5"
+                      cursor="pointer"
+                      bg={selectSubCategory == index ? "#E5F1FF" : "white"}
+                      onMouseEnter={() => handleSelectSubCategory(index)}
+                      onMouseLeave={() => setSelectSubCategory(null)}
+                      display="flex"
+                      fontWeight={selectSubCategory == index ? "700" : "400"}
+                    >
+                      <Text>{subcategory}</Text>
+                    </Box>
+                  ))}
+                </Box>
+              )}
+            </Box>
           ))}
         </VStack>
       ) : (

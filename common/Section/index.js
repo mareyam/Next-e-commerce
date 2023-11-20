@@ -18,12 +18,15 @@ const Index = ({ title, data, img }) => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
 
   return (
-    <HStack mt="5" border="1px solid #8B96A5" h="72" p="2">
+    <HStack mt="5" h="72" p="2">
       {isDesktop ? (
         <>
           <Image pos="relative" h="full" src={img} />
-          <VStack pos="absolute" py="4" px="2" h="40" align="left">
-            <Heading fontSize="16">{title}</Heading>
+
+          <VStack pos="absolute" align="left" py="4" px="2" h="40">
+            <Heading w="48" fontSize="16">
+              {title}
+            </Heading>
             <Button bg="white" color="black">
               Source now
             </Button>

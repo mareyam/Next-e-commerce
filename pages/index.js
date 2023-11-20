@@ -24,9 +24,9 @@ export default function Home() {
           title="Consumer electronics and gadgets"
           data={TECH}
         />
-        <Box border="1px solid #8B96A5" py="5" px="2" my="2">
+        <Box py="5" px="2" my="2">
           <Heading fontSize="20">Recommeded Products</Heading>
-          <ProductItems />
+          <ProductItems count={4} />
         </Box>
         <CandleDetail />
       </Box>

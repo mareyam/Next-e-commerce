@@ -10,11 +10,13 @@ import {
   Box,
   Image,
   HStack,
+  Input,
   Stack,
   Heading,
   Text,
   Divider,
   Flex,
+  useBreakpointValue,
   Link,
 } from "@chakra-ui/react";
 import { DragHandleIcon } from "@chakra-ui/icons";
@@ -24,6 +26,8 @@ import AddToCartPopup from "../../common/AddToCartPopup";
 
 const Navbar = () => {
   const [toggleHam, setToggleHam] = useState(false);
+  const isDesktop = useBreakpointValue({ base: false, lg: true });
+
   return (
     <Container
       bg="gray.100"
@@ -41,6 +45,33 @@ const Navbar = () => {
           <Heading>Logo</Heading>
         </Link>
 
+        {isDesktop && (
+          <HStack spacing="none">
+            <Box
+              borderRadius="8"
+              borderRightRadius="0"
+              border="2px solid blue"
+              w="sm"
+              bg="white"
+            >
+              <Input border="none" placeholder="Search" />
+            </Box>
+
+            <Button
+              borderRadius="0"
+              borderRightRadius="8"
+              color="white"
+              bg="blue"
+              _hover={{
+                color: "white",
+                bg: "blue",
+              }}
+            >
+              Search
+            </Button>
+          </HStack>
+        )}
+
         <Box display={{ base: "block", md: "none" }}>
           <IconButton
             transition="all 0.3s ease-out"
@@ -56,7 +87,7 @@ const Navbar = () => {
           ></IconButton>
         </Box>
 
-        <Box display={{ base: "none", md: "block" }}>
+        <Box border="2px solid red" display={{ base: "none", md: "block" }}>
           <HStack
             position="relative"
             display={{ base: "block", md: "flex" }}
