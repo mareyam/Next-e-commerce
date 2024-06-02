@@ -1,6 +1,6 @@
 export const CATEGORIES = [
   {
-    name: "Clothes",
+    name: "Clothess",
     subcategories: [
       "Men's Clothing",
       "Women's Clothing",
