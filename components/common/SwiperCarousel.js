@@ -29,9 +29,9 @@ const SwiperCarousel = () => {
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
     >
-      {data?.map((item) => {
+      {data?.map((item, index) => {
         return (
-          <SwiperSlide>
+          <SwiperSlide key={index}>
             <Box
               borderRadius="3%"
               position="relative"

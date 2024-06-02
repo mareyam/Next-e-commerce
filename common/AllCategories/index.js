@@ -15,12 +15,10 @@ const index = () => {
 
   const handleSelectCategory = (category) => {
     setSelectCategory(category);
-    console.log(category);
   };
 
   const handleSelectSubCategory = (subCategory) => {
     setSelectSubCategory(subCategory);
-    console.log(subCategory);
   };
 
   return (
@@ -35,6 +33,7 @@ const index = () => {
               borderRadius="4"
               px="2"
               cursor="pointer"
+              transition="all 0.25s ease"
               bg={selectCategory == index ? "#E5F1FF" : "white"}
               fontWeight={selectCategory == index ? "700" : "400"}
               onMouseEnter={() => handleSelectCategory(index)}
@@ -48,6 +47,7 @@ const index = () => {
                   {category.subcategories.map((subcategory, index) => (
                     <Box
                       key={index}
+                      transition="all 0.25s ease"
                       py="2"
                       borderRadius="4"
                       px="5"

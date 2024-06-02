@@ -10,9 +10,7 @@ function LandingImage() {
       justifyContent="center"
       alignItems="center"
       overflow="hidden"
-      marginBottom='30px'
-
-     
+      marginBottom="30px"
     >
       <Box
         h="100vh"

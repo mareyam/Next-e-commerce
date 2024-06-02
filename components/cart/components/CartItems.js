@@ -98,40 +98,44 @@ const CartItems = () => {
                         <Flex>
                           <Image
                             src={item.image}
-                            alt="candles"
+                            alt={item.id}
                             bg="gray.100"
                             w={{ base: "100%", md: "40%" }}
                           />
                           <Stack mt="2" spacing="3" p="2">
-                            <Heading fontSize={{ base: "12px", md: "sm" }} w='30px'>
+                            <Heading
+                              fontSize={{ base: "12px", md: "sm" }}
+                              w="30px"
+                            >
                               {item.title}
                             </Heading>
                             <Text fontSize="sm">${item.price} </Text>
-                            <Box display={{base:'none', md:'show'}}>
-                              <Quantity/>
+                            <Box display={{ base: "none", md: "show" }}>
+                              <Quantity />
                             </Box>
                             <IconButton
-                              w='auto'
+                              w="auto"
                               isRound={true}
                               backgroundColor="gray.100"
-                              icon={<Box><CloseIcon fontSize='7px'/></Box>}
+                              icon={
+                                <Box>
+                                  <CloseIcon fontSize="7px" />
+                                </Box>
+                              }
                               size={{ base: "xs", md: "xs" }}
                               onClick={() => handleRemoveItem(item.id)}
                             ></IconButton>
-                            
                           </Stack>
                         </Flex>
                       </Td>
-                     
-                      <Td display={{base:"show", md:'hide'}}>
-                       <Quantity/>
+
+                      <Td display={{ base: "show", md: "hide" }}>
+                        <Quantity />
                       </Td>
 
-                      <Td >
+                      <Td>
                         <Text fontSize="sm">${item.price}</Text>
                       </Td>
-                   
-
                     </Tr>
                   );
                 })}

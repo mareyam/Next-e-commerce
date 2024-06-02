@@ -10,7 +10,7 @@ const Index = () => {
   let interval;
 
   const startTimer = () => {
-    const countDownDate = new Date("November 30, 2023").getTime();
+    const countDownDate = new Date("August 1, 2024").getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = countDownDate - now;

@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "../toolkit/Store";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import Layout from "@/components/layout";
 
 const queryClient = new QueryClient();
 let persistor = persistStore(store);
@@ -20,9 +21,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
           <PersistGate loading={null} persistor={persistor}>
-            <Component {...pageProps} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </PersistGate>
         </ChakraProvider>
       </Provider>
@@ -31,24 +34,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
-// import { ChakraProvider } from "@chakra-ui/react";
-// import "../styles/globals.css";
-// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// import { Provider } from "react-redux";
-// import { store } from "../toolkit/Store";
-// const queryClient = new QueryClient();
-
-// function MyApp({ Component, pageProps }) {
-//   return (
-//     <QueryClientProvider client={queryClient}>
-//       <Provider store={store}>
-//         <ChakraProvider>
-//           <Component {...pageProps} />
-//         </ChakraProvider>
-//       </Provider>
-//     </QueryClientProvider>
-//   );
-// }
-
-// export default MyApp;

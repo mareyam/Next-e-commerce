@@ -1,17 +1,15 @@
-import data from '../api/data/products'
-
+import data from "../api/data/products";
 
 export default function handler(req, res) {
-    const {productId} = req.query;
-    const {Products} = data;
+  const { productId } = req.query;
+  const { Products } = data;
 
-    if(productId) {
-        const post = Products.find(value => value.id == productId)
-        return res.status(200).json(post)
-    }
-    return res.status(404).json({error: "Product Not found"})
+  if (productId) {
+    const post = Products.find((value) => value.id == productId);
+    return res.status(200).json(post);
+  }
+  return res.status(404).json({ error: "Product Not found" });
 }
-
 
 // import React from 'react'
 // import Format from '../../layout/format'
@@ -22,7 +20,7 @@ export default function handler(req, res) {
 // import BlogCard from '../../components/blogDetail/blog-card'
 // import Related from '../../components/blogDetail/related'
 // import getPost from '../../lib/helper'
-// import {useRouter} from 'next/router' 
+// import {useRouter} from 'next/router'
 // import fetcher from '../../lib/fetcher'
 // import { SWRConfig } from 'swr'
 
@@ -32,8 +30,8 @@ export default function handler(req, res) {
 //   const {productId} = router.query
 //   const {data, isLoading, isError} = fetcher(`api/data/${productId}`)
 //   if(isLoading) return <div>Loading...</div>
-//   if(isError) return <div> error </div>  
-  
+//   if(isError) return <div> error </div>
+
 //   return (
 //       <SWRConfig value={{fallback}}>
 //         <Article {...data}></Article>
@@ -48,7 +46,7 @@ export default function handler(req, res) {
 //       <div>
 //       <Box mt='4' justifyContent="center" alignItems="center" textAlign='center'>
 //         <Box justifyContent='center' display='flex'>
-//         {author? <Author></Author>:<></>}  
+//         {author? <Author></Author>:<></>}
 //         </Box>
 //         <Heading fontSize={'2xl'}>{title}</Heading>
 //         <Text>{subtitle}</Text>
@@ -70,11 +68,10 @@ export default function handler(req, res) {
 //   );
 // }
 
-
 // import React, {useState} from 'react'
 // import {
-//   Center, 
-//   Icon, 
+//   Center,
+//   Icon,
 //   CheckIcon,
 //   IconButton,
 //   Button,
@@ -90,7 +87,7 @@ export default function handler(req, res) {
 //   HStack
 // } from "@chakra-ui/react";
 // import Quantity from 'components/common/Quantity';
-// import {useRouter} from 'next/router' 
+// import {useRouter} from 'next/router'
 // import fetcher from '../../lib/fetcher'
 // import { SWRConfig } from 'swr'
 // // import ProductDetail from 'components/details/ProductDetail'
@@ -101,8 +98,8 @@ export default function handler(req, res) {
 //   const {productId} = router.query
 //   const {data, isLoading, isError} = fetcher(`api/posts/${productId}`)
 //   if(isLoading) return <div>Loading...</div>
-//   if(isError) return <div> error </div>  
-  
+//   if(isError) return <div> error </div>
+
 //   return (
 //       <SWRConfig value={{fallback}}>
 //         <ProductDetail {...data}></ProductDetail>
@@ -159,8 +156,6 @@ export default function handler(req, res) {
 //   )
 // }
 
-
-
 // import React from 'react'
 // import Format from '../../layout/format'
 // import Author from '../../components/child/author'
@@ -170,7 +165,7 @@ export default function handler(req, res) {
 // import BlogCard from '../../components/blogDetail/blog-card'
 // import Related from '../../components/blogDetail/related'
 // import getPost from '../../lib/helper'
-// import {useRouter} from 'next/router' 
+// import {useRouter} from 'next/router'
 // import fetcher from '../../lib/fetcher'
 // import { SWRConfig } from 'swr'
 
@@ -180,8 +175,8 @@ export default function handler(req, res) {
 //   const {productId} = router.query
 //   const {data, isLoading, isError} = fetcher(`api/data/${productId}`)
 //   if(isLoading) return <div>Loading...</div>
-//   if(isError) return <div> error </div>  
-  
+//   if(isError) return <div> error </div>
+
 //   return (
 //       <SWRConfig value={{fallback}}>
 //         <Article {...data}></Article>
@@ -196,7 +191,7 @@ export default function handler(req, res) {
 //       <div>
 //       <Box mt='4' justifyContent="center" alignItems="center" textAlign='center'>
 //         <Box justifyContent='center' display='flex'>
-//         {author? <Author></Author>:<></>}  
+//         {author? <Author></Author>:<></>}
 //         </Box>
 //         <Heading fontSize={'2xl'}>{title}</Heading>
 //         <Text>{subtitle}</Text>
@@ -226,7 +221,7 @@ export default function handler(req, res) {
 //       props: {
 //         data:JSON.stringify(posts)
 //     }
-//   } 
+//   }
 // }
 
 // export async function getStaticPaths() {
@@ -244,5 +239,5 @@ export default function handler(req, res) {
 //    return {
 //     paths,
 //     fallback:false
-//    }  
+//    }
 //   }

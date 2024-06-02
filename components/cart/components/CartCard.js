@@ -1,35 +1,18 @@
-import React, { useState } from "react";
-import {
-  Center, 
-  Icon, 
-  CheckIcon,
-  IconButton,
-  Button,
-  Container,
-  SimpleGrid,
-  Box,
-  Image,
-  Stack,
-  Heading,
-  Text,
-  Divider,
-  Flex,
-} from "@chakra-ui/react";
-import CartItems from './CartItems';
+import React from "react";
+import { Box } from "@chakra-ui/react";
+import CartItems from "./CartItems";
 import Header from "./Header";
-
 
 const CartCard = () => {
   return (
     <Box>
-     <Header/>
-     <CartItems/>
+      <Header />
+      <CartItems />
     </Box>
   );
 };
 
 export default CartCard;
-
 
 // setSelectedProduct((prevProducts) => [...prevProducts, product]);
 {

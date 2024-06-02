@@ -45,7 +45,7 @@ const Index = () => {
               align="center"
               lineHeight="0.5"
             >
-              <Image h="32" src={item.img} />
+              <Image h="32" src={item.img} alt="cart-item" />
               <Text>{item.name}</Text>
               <Text
                 fontWeight="600"

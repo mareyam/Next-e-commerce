@@ -25,31 +25,33 @@ const SwiperCarousel = () => {
     onSlideChange={() => console.log('slide change')}
 
     >
-      {data?.map((item) => {
+      {data?.map((item, index) => {
         return (
-          <SwiperSlide >
-            <Box h='300px' >
-            <Center
-                w='100%'
-                h='100%'
-                >
-            <Flex  align='center' bg='white' p='5' className={styles.flex}>
-            <Image
-              borderRadius="full" 
-              src={item.image}
-              h="150px"
-              w="150px"
-              p='5'
-            />
-            <Stack spacing='2'>
-                <Text fontSize={{base:'sm', md:'md'}}>{item.id} - {item.title}</Text>
-                <Heading fontSize={{base:'sm', md:'md'}}>{item.details}</Heading>
-            </Stack>
-            </Flex>
-            </Center>
+          <SwiperSlide key={index}>
+            <Box h="300px">
+              <Center w="100%" h="100%">
+                <Flex align="center" bg="white" p="5" className={styles.flex}>
+                  <Image
+                    alt="cart-item"
+                    borderRadius="full"
+                    src={item.image}
+                    h="150px"
+                    w="150px"
+                    p="5"
+                  />
+                  <Stack spacing="2">
+                    <Text fontSize={{ base: "sm", md: "md" }}>
+                      {item.id} - {item.title}
+                    </Text>
+                    <Heading fontSize={{ base: "sm", md: "md" }}>
+                      {item.details}
+                    </Heading>
+                  </Stack>
+                </Flex>
+              </Center>
             </Box>
           </SwiperSlide>
-        )
+        );
       })}
 
   </Swiper>

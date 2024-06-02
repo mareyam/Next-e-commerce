@@ -87,7 +87,7 @@ const Navbar = () => {
           ></IconButton>
         </Box>
 
-        <Box border="2px solid red" display={{ base: "none", md: "block" }}>
+        <Box display={{ base: "none", md: "block" }}>
           <HStack
             position="relative"
             display={{ base: "block", md: "flex" }}

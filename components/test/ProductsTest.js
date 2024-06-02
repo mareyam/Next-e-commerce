@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import {
   Button,
@@ -41,9 +39,9 @@ const ProductsTest = ({ showAddToCart }) => {
             overflow="hidden"
           >
             <Box>
-              <Image src={item.image} alt="candles" bg="gray.100" w="100%" />
+              <Image alt="cart-item" src={item.image} bg="gray.100" w="100%" />
               <Stack mt="2" spacing="3" p="2">
-                  <p>isChecked: {item.isChecked ? "true" : "false"}</p>
+                <p>isChecked: {item.isChecked ? "true" : "false"}</p>
                 <Heading overflow="hidden" size="xs" isTruncated>
                   {item.title}
                 </Heading>

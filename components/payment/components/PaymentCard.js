@@ -6,15 +6,14 @@ import {
   Box,
   Heading,
   Text,
-  Center, // Import Center component
+  Center
 } from "@chakra-ui/react";
-import Checkout from "../../checkout/components/Checkout";
 
 const PaymentCard = () => {
   return (
     <Center h="100vh" textAlign="center">
       <Container maxW="container.lg">
-        <PaymentDetails/>
+        <PaymentDetails />
       </Container>
     </Center>
   );

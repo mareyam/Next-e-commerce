@@ -29,11 +29,7 @@ const CheckoutCartTest = () => {
       </Box>
       <Flex direction={{ base: "column", md: "row" }} flexWrap="wrap">
         <Box w={{ base: "100%", md: "40%" }}>
-          <SimpleGrid
-            columns={{ base: 1, md: 1 }}
-            spacing="2"
-            border="2px solid red"
-          >
+          <SimpleGrid columns={{ base: 1, md: 1 }} spacing="2">
             {itemsToCheckout?.map((item) => (
               <Box
                 key={item.id}
@@ -45,8 +41,8 @@ const CheckoutCartTest = () => {
               >
                 <Flex>
                   <Image
+                    alt="cart-item"
                     src={item.image}
-                    alt="candles"
                     bg="gray.100"
                     w={{ base: "50%", md: "50%" }}
                     h={{ base: "50%", md: "100%" }}

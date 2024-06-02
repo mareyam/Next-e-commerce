@@ -48,9 +48,7 @@ const CandleDetail = () => {
               that inspire you
             </Text>
             <Link as={NextLink} href="/products">
-              <button className={styles.explore_more} w="70%" bg="gray.300">
-                Explore More
-              </button>
+              <button className={styles.explore_more}>Explore More</button>
             </Link>
           </Stack>
         </Center>

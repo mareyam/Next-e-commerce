@@ -36,35 +36,55 @@ const ProductView = () => {
   };
 
   return (
-    <Container bg='gray.100' maxW='100vw' position='sticky' top='0' zIndex='98'>
-    <Flex display={{base:'block', md:'flex'}} p={{base:'2', md:'5'}} justifyContent='space-between'>
-    <HStack >
-        <Box role='group'> 
-        <IconButton
-          fontSize={{base:'12px', md:'sm'}}
-          transition= 'all 0.3s ease-out'
-          transform='rotate(0deg)'
-          _groupHover={{transform: 'rotate(90deg)'}}
-          onClick={() =>handleViewChange('grid')}
-          icon={<Image src='/grid.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
-        ></IconButton></Box> 
+    <Container bg="gray.100" maxW="100vw" position="sticky" top="0" zIndex="98">
+      <Flex
+        display={{ base: "block", md: "flex" }}
+        p={{ base: "2", md: "5" }}
+        justifyContent="space-between"
+      >
+        <HStack>
+          <Box role="group">
+            <IconButton
+              fontSize={{ base: "12px", md: "sm" }}
+              transition="all 0.3s ease-out"
+              transform="rotate(0deg)"
+              _groupHover={{ transform: "rotate(90deg)" }}
+              onClick={() => handleViewChange("grid")}
+              icon={
+                <Image
+                  alt="cart-item"
+                  src="/grid.png"
+                  w={{ base: "12px", md: "20px" }}
+                  h={{ base: "12px", md: "20px" }}
+                />
+              }
+            ></IconButton>
+          </Box>
 
-        <Box role='group'> 
-        <IconButton
-          fontSize={{base:'12px', md:'sm'}}
-          transition= 'all 0.3s ease-out'
-          transform='rotate(0deg)'
-          _groupHover={{transform: 'rotate(90deg)'}}
-          onClick={() => handleViewChange('gallery')}
-          icon={<Image src='/layout.png' w={{base:'12px', md:'20px'}} h={{base:'12px', md:'20px'}}/>}
-        ></IconButton></Box> 
-    </HStack>
-    </Flex>
-    {view === 'grid' ? gridView : galleryView}
+          <Box role="group">
+            <IconButton
+              fontSize={{ base: "12px", md: "sm" }}
+              transition="all 0.3s ease-out"
+              transform="rotate(0deg)"
+              _groupHover={{ transform: "rotate(90deg)" }}
+              onClick={() => handleViewChange("gallery")}
+              icon={
+                <Image
+                  src="/layout.png"
+                  alt="cart-item"
+                  w={{ base: "12px", md: "20px" }}
+                  h={{ base: "12px", md: "20px" }}
+                />
+              }
+            ></IconButton>
+          </Box>
+        </HStack>
+      </Flex>
+      {view === "grid" ? gridView : galleryView}
 
-     {/* {view === 'grid' ? <GridView products={data} /> : <GalleryView products={data} />} */}
-    </Container>    
-  )
+      {/* {view === 'grid' ? <GridView products={data} /> : <GalleryView products={data} />} */}
+    </Container>
+  );
 }
 
 export default ProductView

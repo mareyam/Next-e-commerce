@@ -14,14 +14,14 @@ import React from "react";
 import { TECH } from "data/tech";
 import { INTERIOR } from "data/interior";
 
-const Index = ({ title, data, img }) => {
+const Section = ({ title, data, img }) => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
-
+  console.log(TECH);
   return (
     <HStack mt="5" h="72" p="2">
       {isDesktop ? (
         <>
-          <Image pos="relative" h="full" src={img} />
+          <Image pos="relative" h="full" src={img} alt="img" />
 
           <VStack pos="absolute" align="left" py="4" px="2" h="40">
             <Heading w="48" fontSize="16">
@@ -32,7 +32,7 @@ const Index = ({ title, data, img }) => {
             </Button>
           </VStack>
           <SimpleGrid h="full" columns={[2, null, 4]} spacingX="4">
-            {data.slice(0, 8).map((item) => (
+            {data?.slice(0, 8).map((item) => (
               <Box
                 h="full"
                 w="52"
@@ -46,7 +46,7 @@ const Index = ({ title, data, img }) => {
                   <Text>from USD {item.sale}</Text>
                 </Box>
                 <Box alignSelf="flex-end">
-                  <Image h="20" src={item.img} />
+                  <Image alt={item.name} h="20" src={item.img} />
                 </Box>
               </Box>
             ))}
@@ -64,7 +64,7 @@ const Index = ({ title, data, img }) => {
             overflow="scroll"
           >
             <HStack h="full">
-              {data.slice(0, 8).map((item) => (
+              {data?.slice(0, 8).map((item) => (
                 <VStack
                   h="40"
                   // px="12"
@@ -73,7 +73,7 @@ const Index = ({ title, data, img }) => {
                   lineHeight="0.75"
                   w="96"
                 >
-                  <Image h="20" src={item.img} />
+                  <Image h="20" src={item.img} alt={item.name} />
                   <Text>{item.name}</Text>
                   <Text>from USD {item.sale}</Text>
                 </VStack>
@@ -89,7 +89,7 @@ const Index = ({ title, data, img }) => {
   );
 };
 
-export default Index;
+export default Section;
 
 // import {
 //   Box,
