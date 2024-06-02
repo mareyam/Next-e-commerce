@@ -1,4 +1,4 @@
-import productData from "../data/data";
+import productData from "../api/data/products";
 
 export default function handler(req, res) {
   const { Products } = productData;
