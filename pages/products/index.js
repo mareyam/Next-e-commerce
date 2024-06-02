@@ -1,15 +1,7 @@
-import React from "react";
+import data from "../data/data";
 
-const Index = () => {
-  return <div>Index</div>;
-};
-
-export default Index; // import data from "../data/data";
-// import productData from "../api/data/products";
-// import
-
-// export default function handler(req, res) {
-//   const { Products } = productData;
-//   if (Products) return res.status(200).json(Products);
-//   return res.status(200).json({ error: "Not found" });
-// }
+export default function handler(req, res) {
+  const { Products } = data;
+  if (Products) return res.status(200).json(Products);
+  return res.status(200).json({ error: "Not found" });
+}
